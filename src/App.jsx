@@ -7,6 +7,8 @@ import Profile from './Profile.jsx'
 import ComingSoon from './ComingSoon.jsx'
 import Wallet from './Wallet.jsx'
 import Mining from './Mining.jsx'
+import News from './News.jsx'
+
 function MaterialIcon({ name, active }) {
   return (
     <span
@@ -67,6 +69,7 @@ function App() {
           <Route path="/mining" element={<Mining />} />
           <Route path="/wallet" element={<Wallet />} />
           <Route path="/more" element={<More />} />
+          <Route path="/news/:id" element={<News />} />
         </Routes>
         <BottomNav />
       </div>

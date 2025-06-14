@@ -9,6 +9,7 @@ import {
   MS_IN_DAY
 } from "./miningUtils";
 import fireGif from "./assets/fire.gif";
+import NewsList from "./NewsList.jsx";
 
 // Popup Modal
 function MiningModal({ open, onClose, onMine, isMining }) {
@@ -151,6 +152,7 @@ const Home = () => {
           </div>
           <span className="icon-arrow" />
         </div>
+                <NewsList />
       </main>
     </div>
   );
