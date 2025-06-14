@@ -62,7 +62,7 @@ function App() {
     <Router>
       <div className="app-container">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/WebApp" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/mining" element={<Mining />} />
           <Route path="/wallet" element={<Wallet />} />
