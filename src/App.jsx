@@ -25,7 +25,7 @@ function BottomNav() {
   const location = useLocation()
   const navItems = [
     { to: '/profile', name: 'account_box', label: 'Profile' },
-    { to: '/', name: 'home', label: 'Home' },
+    { to: '/WebApp', name: 'home', label: 'Home' },
     { to: '/mining', name: 'data_exploration', label: 'Mining' },
     { to: '/wallet', name: 'wallet', label: 'Wallet' },
     { to: '/more', name: 'more_vert', label: 'More' },
