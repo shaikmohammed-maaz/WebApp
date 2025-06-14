@@ -1,0 +1,184 @@
+.home-container {
+  background: #111;
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 20px 0 20px;
+}
+.logo-title {
+  display: flex;
+  align-items: center;
+}
+.logo-circle {
+  background: #FFD600;
+  color: #111;
+  font-weight: bold;
+  font-size: 2rem;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+}
+.logo-text {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #FFD600;
+}
+.header-icons {
+  display: flex;
+  gap: 24px;
+}
+.icon-trophy, .icon-bell {
+  width: 28px;
+  height: 28px;
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.icon-trophy { background-image: url('data:image/svg+xml;utf8,<svg fill="%23FFD600" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6 3v2H3v3c0 2.97 2.16 5.43 5 5.92V17H7v2h10v-2h-1v-3.08c2.84-.49 5-2.95 5-5.92V5h-3V3H6zm13 5c0 2.39-1.72 4.37-4 4.9V5h4v3zm-14 0V5h4v7.9C6.72 12.37 5 10.39 5 8z"/></svg>'); }
+.icon-bell { background-image: url('data:image/svg+xml;utf8,<svg fill="%23FFD600" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 22c1.1 0 2-.9 2-2h-4a2 2 0 002 2zm6-6V11c0-3.07-1.63-5.64-4.5-6.32V4a1.5 1.5 0 00-3 0v.68C7.63 5.36 6 7.92 6 11v5l-1.29 1.29A1 1 0 006 19h12a1 1 0 00.71-1.71L18 16z"/></svg>'); }
+
+.home-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 16px;
+}
+.coin-progress {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  margin-bottom: 32px;
+}
+.progress-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.coin-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.coin-icon {
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+.icon-coin {
+  width: 36px;
+  height: 36px;
+  display: inline-block;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23111" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/><rect x="9" y="7" width="6" height="10" rx="2" fill="%23FFD600"/><circle cx="12" cy="12" r="2" fill="%23111"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.coin-amount {
+  font-size: 2.6rem;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 1px;
+}
+.coin-usd {
+  font-size: 1.3rem;
+  color: #FFD600;
+  margin-top: 4px;
+}
+.mining-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.mining-icon {
+  background: #FFD600;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+.icon-pickaxe {
+  width: 44px;
+  height: 44px;
+  display: inline-block;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23111" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2 12l10-9 10 9-2 2-8-7-8 7z"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.mining-timer {
+  font-size: 2rem;
+  color: #fff;
+  font-family: monospace;
+}
+.invite-group {
+  background: #222;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  padding: 18px 20px;
+  margin-top: 18px;
+  width: 90%;
+  max-width: 420px;
+  box-sizing: border-box;
+  gap: 16px;
+}
+.invite-icon {
+  background: none;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icon-group {
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23FFD600" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="7" cy="8" r="3"/><circle cx="17" cy="8" r="3"/><ellipse cx="12" cy="17" rx="9" ry="5"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.invite-text {
+  flex: 1;
+  color: #fff;
+  font-size: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.invite-link {
+  color: #FFD600;
+  font-weight: 500;
+  cursor: pointer;
+}
+.icon-arrow {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23FFD600" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 6l6 6-6 6"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
