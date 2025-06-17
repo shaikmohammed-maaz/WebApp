@@ -1,6 +1,6 @@
 .wallet-container {
   background: #111;
-  color: #FFD600;
+  color: #39FF14;
   min-height: 100vh;
   width: 100vw;
   display: flex;
@@ -14,7 +14,7 @@
   align-items: center;
   padding: 18px 24px 0 24px;
   font-size: 1.2rem;
-  color: #FFD600;
+  color: #39FF14;
   font-family: monospace;
 }
 .wallet-time {
@@ -51,12 +51,12 @@
   font-size: 2.6rem;
   font-weight: 700;
   margin-bottom: 12px;
-  color: #FFD600;
+  color: #39FF14;
   text-align: center;
 }
 .wallet-desc {
   font-size: 1.35rem;
-  color: #FFD600;
+  color: #39FF14;
   margin-bottom: 32px;
   text-align: center;
   max-width: 90vw;
@@ -65,7 +65,7 @@
   width: 260px;
   height: 260px;
   border-radius: 50%;
-  border: 4px solid #FFD600;
+  border: 4px solid #39FF14;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -80,7 +80,7 @@
 .wallet-btn {
   width: 90%;
   max-width: 480px;
-  background: #FFD600;
+  background: #39FF14;
   color: #111;
   font-size: 1.5rem;
   font-weight: 600;

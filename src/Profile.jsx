@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import "./Profile.css";
+import "./ProfileRedesign.css";
 import { getUserProfile, setUserProfile, ensureUserProfile } from './userUtils';
+import Header from './Header.jsx';
 
 // Default user profile data
 const defaultUser = {
@@ -92,158 +93,200 @@ const Profile = () => {
   const [showEdit, setShowEdit] = useState(false);
   const [showConnections, setShowConnections] = useState(false);
   const [showSecurity, setShowSecurity] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const [showDeleteDialog, setShowDeleteDialog] = useState(false);
+  const [showSignoutDialog, setShowSignoutDialog] = useState(false);
+  const profileComplete = 0.8; // 80% complete, example
   if (!user) return <div>Loading...</div>;
 
   if (showEdit) {
     return (
-      <div className="profile-container">
-        <header className="profile-header">
-          <button className="back-btn" style={{position: 'absolute', top: 18, left: 18, background: 'none', border: 'none', color: '#FFD600', fontSize: 28, cursor: 'pointer', zIndex: 2, padding: 0}} onClick={() => setShowEdit(false)} aria-label="Back">
-            <span style={{fontFamily: 'Material Symbols Outlined', fontWeight: 700}}>←</span>
-          </button>
-          <div className="logo-title">
-            <div className="logo-circle">N</div>
-            <span className="logo-text">NexCoin</span>
-          </div>
-        </header>
-        <main className="profile-main" style={{alignItems: 'flex-start', background: '#181818', color: '#FFD600', borderRadius: 24, margin: 16, padding: 24, boxShadow: '0 2px 16px #0008'}}>
-          <div style={{position: 'relative', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 16}}>
-            <div style={{border: '4px solid #FFD600', borderRadius: '50%', width: 110, height: 110, background: '#222', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 8}}>
-              <img src={user.profilePicture} alt="avatar" style={{width: 90, height: 90, borderRadius: '50%', objectFit: 'cover'}} />
+      <div className="profile-bg">
+        <Header />
+        <div className="profile-card">
+          <div className="profile-avatar-glow">
+            <span className="glow" />
+            <div className="profile-avatar">
+              <img src={user.profilePicture} alt="avatar" style={{width: 80, height: 80, borderRadius: '50%'}} />
             </div>
-            <div style={{fontSize: 28, fontWeight: 600, color: '#FFD600', marginBottom: 8}}>{user.username}</div>
           </div>
-          <div style={{width: '100%', maxWidth: 340, margin: '0 auto'}}>
-            <div style={{display: 'flex', justifyContent: 'space-between', fontWeight: 600, margin: '10px 0'}}><span>Lastname</span><span>{user.kyc.fullName.split(' ').slice(-1)[0]}</span></div>
-            <div style={{display: 'flex', justifyContent: 'space-between', fontWeight: 600, margin: '10px 0'}}><span>Firstname</span><span>{user.kyc.fullName.split(' ').slice(0, -1).join(' ')}</span></div>
-            <div style={{display: 'flex', justifyContent: 'space-between', fontWeight: 600, margin: '10px 0'}}><span>Gender</span><span>-</span></div>
-            <div style={{display: 'flex', justifyContent: 'space-between', fontWeight: 600, margin: '10px 0'}}><span>Date of birth</span><span>{user.kyc.dob}</span></div>
-            <div style={{display: 'flex', justifyContent: 'space-between', fontWeight: 600, margin: '10px 0'}}><span>Email</span><span>{user.email}</span></div>
-            <div style={{display: 'flex', justifyContent: 'space-between', fontWeight: 600, margin: '10px 0'}}><span>Phone number</span><span>{user.phone}</span></div>
-            <div style={{display: 'flex', justifyContent: 'space-between', fontWeight: 600, margin: '10px 0'}}><span>Country</span><span>-</span></div>
-            <div style={{display: 'flex', justifyContent: 'space-between', fontWeight: 600, margin: '10px 0'}}><span>Address</span><span>-</span></div>
+          <div className="profile-username">{user.username}</div>
+          <div className="profile-greeting">Welcome, {user.username}!</div>
+          <div className="profile-complete-label">Profile completeness: {(profileComplete*100).toFixed(0)}%</div>
+          <div className="profile-complete-bar">
+            <div className="profile-complete-inner" style={{ width: `${profileComplete*100}%` }} />
           </div>
-        </main>
+        </div>
+        <div style={{width: '100%', maxWidth: 340, margin: '0 auto'}}>
+          <div style={{display: 'flex', justifyContent: 'space-between', fontWeight: 600, margin: '10px 0'}}><span>Lastname</span><span>{user.kyc.fullName.split(' ').slice(-1)[0]}</span></div>
+          <div style={{display: 'flex', justifyContent: 'space-between', fontWeight: 600, margin: '10px 0'}}><span>Firstname</span><span>{user.kyc.fullName.split(' ').slice(0, -1).join(' ')}</span></div>
+          <div style={{display: 'flex', justifyContent: 'space-between', fontWeight: 600, margin: '10px 0'}}><span>Gender</span><span>-</span></div>
+          <div style={{display: 'flex', justifyContent: 'space-between', fontWeight: 600, margin: '10px 0'}}><span>Date of birth</span><span>{user.kyc.dob}</span></div>
+          <div style={{display: 'flex', justifyContent: 'space-between', fontWeight: 600, margin: '10px 0'}}><span>Email</span><span>{user.email}</span></div>
+          <div style={{display: 'flex', justifyContent: 'space-between', fontWeight: 600, margin: '10px 0'}}><span>Phone number</span><span>{user.phone}</span></div>
+          <div style={{display: 'flex', justifyContent: 'space-between', fontWeight: 600, margin: '10px 0'}}><span>Country</span><span>-</span></div>
+          <div style={{display: 'flex', justifyContent: 'space-between', fontWeight: 600, margin: '10px 0'}}><span>Address</span><span>-</span></div>
+        </div>
       </div>
     );
   }
 
   if (showConnections) {
     return (
-      <div className="profile-container">
-        <header className="profile-header">
-          <button className="back-btn" style={{position: 'absolute', top: 18, left: 18, background: 'none', border: 'none', color: '#FFD600', fontSize: 28, cursor: 'pointer', zIndex: 2, padding: 0}} onClick={() => setShowConnections(false)} aria-label="Back">
-            <span style={{fontFamily: 'Material Symbols Outlined', fontWeight: 700}}>←</span>
-          </button>
-          <div className="logo-title">
-            <div className="logo-circle">N</div>
-            <span className="logo-text">NexCoin</span>
-          </div>
-        </header>
-        <main className="profile-main" style={{background: '#181818', color: '#FFD600', borderRadius: 24, margin: 16, padding: 24, boxShadow: '0 2px 16px #0008'}}>
-          <div className="profile-avatar-section">
-            <div className="profile-avatar">
-              <img src={user.profilePicture} alt="avatar" style={{width: 80, height: 80, borderRadius: '50%'}} />
-            </div>
-            <div className="profile-username">{user.username}</div>
-          </div>
-          <div className="profile-info-list">
-            <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '12px 0'}}><b>eKYC</b>: <span style={{color: '#FFD600', marginLeft: 12}}>{user.kyc.status === 'verified' ? 'Verified' : 'Not verified'}</span></div>
-            <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '12px 0'}}><b>Zalo connecting</b>: <span style={{color: '#FFD600', marginLeft: 12}}>No connection</span></div>
-            <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '12px 0'}}><b>Facebook connecting</b>: <span style={{color: '#FFD600', marginLeft: 12}}>No connection</span></div>
-            <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '12px 0'}}><b>Google connecting</b>: <span style={{color: '#FFD600', marginLeft: 12}}>No connection</span></div>
-            <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '12px 0'}}><b>Tiktok connecting</b>: <span style={{color: '#FFD600', marginLeft: 12}}>No connection</span></div>
-            <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '12px 0'}}><b>Telegram connecting</b>: <span style={{color: '#FFD600', marginLeft: 12}}>No connection</span></div>
-          </div>
-        </main>
+      <div className="profile-bg">
+        <Header />
+        <div className="section-card">
+          <div className="section-header"><span className="icon-section icon-section-social" />Social Connections</div>
+          <div className="section-content">eKYC: <b style={{color:'#2CFF05'}}>{user.kyc.status === 'verified' ? 'Verified' : 'Not verified'}</b></div>
+          <div className="section-content" style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '12px 0'}}><b>Zalo connecting</b>: <span style={{color: '#39FF14', marginLeft: 12}}>No connection</span></div>
+          <div className="section-content" style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '12px 0'}}><b>Facebook connecting</b>: <span style={{color: '#39FF14', marginLeft: 12}}>No connection</span></div>
+          <div className="section-content" style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '12px 0'}}><b>Google connecting</b>: <span style={{color: '#39FF14', marginLeft: 12}}>No connection</span></div>
+          <div className="section-content" style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '12px 0'}}><b>Tiktok connecting</b>: <span style={{color: '#39FF14', marginLeft: 12}}>No connection</span></div>
+          <div className="section-content" style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '12px 0'}}><b>Telegram connecting</b>: <span style={{color: '#39FF14', marginLeft: 12}}>No connection</span></div>
+        </div>
       </div>
     );
   }
 
   if (showSecurity) {
     return (
-      <div className="profile-container">
-        <header className="profile-header">
-          <button className="back-btn" style={{position: 'absolute', top: 18, left: 18, background: 'none', border: 'none', color: '#FFD600', fontSize: 28, cursor: 'pointer', zIndex: 2, padding: 0}} onClick={() => setShowSecurity(false)} aria-label="Back">
-            <span style={{fontFamily: 'Material Symbols Outlined', fontWeight: 700}}>←</span>
-          </button>
-          <div className="logo-title">
-            <div className="logo-circle">N</div>
-            <span className="logo-text">NexCoin</span>
+      <div className="profile-bg">
+        <Header />
+        <div className="section-card">
+          <div className="section-header"><span className="icon-section icon-section-security" />Account & Security</div>
+          <div className="section-toggle-row">
+            <span>Password</span>
+            <button className="section-action-btn">Change</button>
           </div>
-        </header>
-        <main className="profile-main" style={{background: '#181818', color: '#FFD600', borderRadius: 24, margin: 16, padding: 24, boxShadow: '0 2px 16px #0008'}}>
-          <div className="profile-avatar-section">
-            <div className="profile-avatar">
-              <img src={user.profilePicture} alt="avatar" style={{width: 80, height: 80, borderRadius: '50%'}} />
+          <div className="section-toggle-row">
+            <span>2FA</span>
+            <label className="toggle-switch">
+              <input type="checkbox" checked={user.security.twoFactorEnabled} readOnly />
+              <span className="toggle-slider" />
+            </label>
+          </div>
+          <div className="section-toggle-row">
+            <span>Touch ID</span>
+            <label className="toggle-switch">
+              <input type="checkbox" checked={false} readOnly />
+              <span className="toggle-slider" />
+            </label>
+          </div>
+          <div className="section-actions">
+            <button className="section-action-btn" style={{background:'#d00'}} onClick={()=>setShowDeleteDialog(true)}>Delete Account</button>
+            <button className="section-action-btn" onClick={()=>setShowSignoutDialog(true)}>Sign Out</button>
+          </div>
+        </div>
+        {showDeleteDialog && (
+          <div className="modal-overlay">
+            <div className="modal-content">
+              <h3>Are you sure you want to delete your account?</h3>
+              <button className="section-action-btn" style={{background:'#d00'}} onClick={()=>setShowDeleteDialog(false)}>Cancel</button>
+              <button className="section-action-btn" onClick={()=>{/* handle delete */}}>Delete</button>
             </div>
-            <div className="profile-username">{user.username}</div>
           </div>
-          <div className="profile-info-list">
-            <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '12px 0'}}><b>First password</b>: <span style={{color: '#FFD600', marginLeft: 12, cursor: 'pointer'}}>Change</span></div>
-            <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '12px 0'}}><b>Two factor authentication (2FA)</b>: <span style={{marginLeft: 12}}><input type="checkbox" checked={user.security.twoFactorEnabled} readOnly style={{marginLeft: 8}} /></span></div>
-            <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '12px 0'}}><b>Signin with Touch ID</b>: <span style={{marginLeft: 12}}><input type="checkbox" checked={false} readOnly style={{marginLeft: 8}} /></span></div>
-            <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '12px 0'}}><b>Remove your account</b>: <span style={{color: '#d00', marginLeft: 12}}>Delete</span></div>
-            <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '12px 0'}}><b>Signout</b>: <span style={{color: '#FFD600', marginLeft: 12, cursor: 'pointer'}}>Signout</span></div>
+        )}
+        {showSignoutDialog && (
+          <div className="modal-overlay">
+            <div className="modal-content">
+              <h3>Sign out of your account?</h3>
+              <button className="section-action-btn" onClick={()=>setShowSignoutDialog(false)}>Cancel</button>
+              <button className="section-action-btn" onClick={()=>{/* handle signout */}}>Sign Out</button>
+            </div>
           </div>
-        </main>
+        )}
       </div>
     );
   }
 
   return (
-    <div className="profile-container">
-      <header className="profile-header">
-        <div className="logo-title">
-          <div className="logo-circle">N</div>
-          <span className="logo-text">NexCoin</span>
-        </div>
-      </header>
-      <main className="profile-main">
-        <div className="profile-avatar-section" style={{position: 'relative'}}>
+    <div className="profile-bg">
+      <Header />
+      <div className="profile-card">
+        <div className="profile-avatar-glow">
+          <span className="glow" />
           <div className="profile-avatar">
             <img src={user.profilePicture} alt="avatar" style={{width: 80, height: 80, borderRadius: '50%'}} />
           </div>
-          <div className="profile-username">{user.username}</div>
         </div>
-        <div className="profile-balance-section">
-          <div className="profile-balance">{user.wallet.balance}</div>
-          <div className="profile-group-count">{user.mining.groupMining.members}</div>
+        <div className="profile-username">{user.username}</div>
+        <div className="profile-greeting">Welcome, {user.username}!</div>
+        <div className="profile-complete-label">Profile completeness: {(profileComplete*100).toFixed(0)}%</div>
+        <div className="profile-complete-bar">
+          <div className="profile-complete-inner" style={{ width: `${profileComplete*100}%` }} />
         </div>
-        <div className="profile-invite-group" onClick={() => navigator.clipboard.writeText(user.referralCode)}>
-          <div className="invite-icon">
-            <span className="icon-group" />
-          </div>
-          <div className="invite-text">
-            <div>Group: {user.mining.groupMining.groupName} (Boost: {user.mining.groupMining.boostPercent}%)</div>
-            <div className="invite-link">Copy Referral: {user.referralCode}</div>
-          </div>
-          <span className="icon-arrow" />
+      </div>
+      <div className="balance-card">
+        <div className="balance-row">
+          <span className="profile-balance">{user.wallet.balance}</span>
+          <span className="profile-group-count">Group: {user.mining.groupMining.groupName} ({user.mining.groupMining.members} members, Boost: {user.mining.groupMining.boostPercent}%)</span>
         </div>
-        <div className="profile-menu-list">
-          <div className="profile-menu-item" onClick={() => setShowEdit(true)}>
-            <span className="icon-menu icon-user" />
-            <span className="menu-label">My information</span>
-            <span className="icon-arrow" />
-          </div>
-          <div className="profile-menu-item" onClick={() => setShowConnections(true)}>
-            <span className="icon-menu icon-verify" />
-            <span className="menu-label">User verification</span>
-            <span className="icon-arrow" />
-          </div>
-          <div className="profile-menu-item" onClick={() => setShowSecurity(true)}>
-            <span className="icon-menu icon-security" />
-            <span className="menu-label">Account & security</span>
-            <span className="icon-arrow" />
+        <div className="referral-row">
+          <span className="referral-label">Referral:</span>
+          <span className="referral-code">{user.referralCode}</span>
+          <span className="icon-copy" onClick={()=>{navigator.clipboard.writeText(user.referralCode); setCopied(true); setTimeout(()=>setCopied(false), 1200);}} title="Copy" />
+          <span className="icon-share" title="Share" />
+          {copied && <span style={{color:'#2CFF05', fontSize:'0.98rem', marginLeft:8}}>Copied!</span>}
+        </div>
+        <div className="badge-row">
+          <span className="badge-chip"><span className="icon-badge icon-badge-verified" /> Verified</span>
+          <span className="badge-chip"><span className="icon-badge icon-badge-group" /> Group</span>
+          {/* Add more badges as needed */}
+        </div>
+      </div>
+      <div className="section-card">
+        <div className="section-header"><span className="icon-section icon-section-info" />My Information</div>
+        <div className="section-content">Email: {user.email}</div>
+        <div className="section-content">Phone: {user.phone}</div>
+        <div className="section-content">Country: -</div>
+        <div className="section-content">Address: -</div>
+      </div>
+      <div className="section-card">
+        <div className="section-header"><span className="icon-section icon-section-verify" />User Verification</div>
+        <div className="section-content">KYC Status: <b style={{color:'#2CFF05'}}>{user.kyc.status}</b></div>
+        <div className="section-content">Full Name: {user.kyc.fullName}</div>
+        <div className="section-content">DOB: {user.kyc.dob}</div>
+        <div className="section-content">ID: {user.kyc.idType} {user.kyc.idNumber}</div>
+      </div>
+      <div className="section-card">
+        <div className="section-header"><span className="icon-section icon-section-security" />Account & Security</div>
+        <div className="section-toggle-row">
+          <span>2FA</span>
+          <label className="toggle-switch">
+            <input type="checkbox" checked={user.security.twoFactorEnabled} readOnly />
+            <span className="toggle-slider" />
+          </label>
+        </div>
+        <div className="section-toggle-row">
+          <span>Touch ID</span>
+          <label className="toggle-switch">
+            <input type="checkbox" checked={false} readOnly />
+            <span className="toggle-slider" />
+          </label>
+        </div>
+        <div className="section-actions">
+          <button className="section-action-btn" style={{background:'#d00'}} onClick={()=>setShowDeleteDialog(true)}>Delete Account</button>
+          <button className="section-action-btn" onClick={()=>setShowSignoutDialog(true)}>Sign Out</button>
+        </div>
+      </div>
+      {showDeleteDialog && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <h3>Are you sure you want to delete your account?</h3>
+            <button className="section-action-btn" style={{background:'#d00'}} onClick={()=>setShowDeleteDialog(false)}>Cancel</button>
+            <button className="section-action-btn" onClick={()=>{/* handle delete */}}>Delete</button>
           </div>
         </div>
-        <div style={{marginTop: 24, color: '#FFD600', fontSize: 16}}>
-          <div>Level: {user.achievements.level} | Rank: {user.achievements.rank}</div>
-          <div>Badges: {user.achievements.badges.join(', ')}</div>
-          <div>Daily Challenges: {user.achievements.dailyChallengesCompleted}</div>
-          <div>Streak: {user.mining.streak.daysActive} days</div>
+      )}
+      {showSignoutDialog && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <h3>Sign out of your account?</h3>
+            <button className="section-action-btn" onClick={()=>setShowSignoutDialog(false)}>Cancel</button>
+            <button className="section-action-btn" onClick={()=>{/* handle signout */}}>Sign Out</button>
+          </div>
         </div>
-      </main>
+      )}
     </div>
   );
 };

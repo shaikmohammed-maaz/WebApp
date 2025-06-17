@@ -2,61 +2,61 @@
   {
     "id": 1,
     "title": "NexCoin Launches New Mining Feature!",
-    "imageUrl": "./assets/new.jpg",
+    "imageUrl": "/assets/new.jpg",
     "content": "NexCoin has officially rolled out a groundbreaking mining feature that enables users to participate in a continuous 24-hour mining cycle. This new feature allows users to earn coins every day simply by staying active on the platform. The main goal is to drive community engagement, while also offering meaningful rewards for consistent participation. Users can check their progress through a new dashboard designed to track mining time, earnings, and participation streaks. With this initiative, NexCoin aims to redefine user involvement in crypto mining and boost long-term retention."
   },
   {
     "id": 2,
     "title": "Community Group Mining Now Available",
-    "imageUrl": "./assets/new.jpg",
+    "imageUrl": "/assets/new.jpg",
     "content": "NexCoin introduces Group Mining – a new way for users to collaborate with friends and increase mining efficiency. By forming groups, users benefit from a 10% mining rate boost for each member added. This creates an incentive for users to invite others and build mining teams. The feature also includes a leaderboard system to track top-performing groups, weekly bonuses for the most active collectives, and built-in chat functionality to strategize mining sessions. NexCoin hopes to turn mining into a social and competitive experience, strengthening community ties in the process."
   },
   {
     "id": 3,
     "title": "Explore Rubi: Discover New Opportunities",
-    "imageUrl": "./assets/new.jpg",
+    "imageUrl": "/assets/new.jpg",
     "content": "Rubi is a newly launched discovery hub within the NexCoin app that allows users to find unique earning opportunities, trending tokens, and community challenges. With an intuitive interface, users can explore curated content, learn about market trends, and take part in interactive missions that yield bonus rewards. Whether you're a beginner or seasoned crypto user, Rubi personalizes your experience and provides actionable insights for making smarter decisions. Upcoming updates will introduce AI-curated suggestions and limited-time campaigns for even greater benefits."
   },
   {
     "id": 4,
     "title": "NexCoin App Gets Major UI Overhaul",
-    "imageUrl": "./assets/new.jpg",
+    "imageUrl": "/assets/new.jpg",
     "content": "The NexCoin mobile app has received a major visual and functional overhaul aimed at improving user experience. The redesign introduces a modern interface with a clean layout, dark mode support, and faster load times. Navigation has been streamlined, with quick-access tabs for mining, wallet, news, and explore. Security has also been enhanced, including biometric login options and improved transaction verification. User feedback has played a key role in shaping these updates, and NexCoin encourages the community to share further suggestions through the in-app feedback center."
   },
   {
     "id": 5,
     "title": "Introducing NexCoin Vault: Secure Your Crypto",
-    "imageUrl": "./assets/new.jpg",
+    "imageUrl": "/assets/new.jpg",
     "content": "The new NexCoin Vault feature offers advanced security for storing digital assets. This optional vault adds a layer of protection using multi-signature authentication, cold storage options, and customizable withdrawal limits. It is especially useful for users who hold large amounts of NexCoin or other supported tokens and want maximum peace of mind. The Vault dashboard provides real-time monitoring and alerts for any suspicious activity. NexCoin is committed to making crypto storage not just safe, but also user-friendly and transparent."
   },
   {
     "id": 6,
     "title": "Referral Rewards Program Now Live!",
-    "imageUrl": "./assets/new.jpg",
+    "imageUrl": "/assets/new.jpg",
     "content": "NexCoin's new Referral Rewards Program allows users to earn bonus coins by inviting others to the platform. Each referral not only rewards the inviter but also benefits the new user with a welcome bonus. Users can track referrals through a new dashboard that shows earnings, invite links, and referral activity. Tiers have been introduced, so top referrers gain access to exclusive benefits such as airdrops, early access to features, and bonus multipliers. This initiative supports organic growth while rewarding loyal users who help grow the community."
   },
   {
     "id": 7,
     "title": "NexCoin Partners with CryptoEdu for Learning Hub",
-    "imageUrl": "./assets/new.jpg",
+    "imageUrl": "/assets/new.jpg",
     "content": "NexCoin has partnered with CryptoEdu, a well-known blockchain education platform, to launch a built-in Learning Hub within the app. This hub will feature beginner-to-advanced courses, explainer videos, interactive quizzes, and certification programs. The goal is to educate users about blockchain technology, cryptocurrency fundamentals, and smart investing. Participants can even earn NexCoin by completing learning modules. With CryptoEdu’s expertise and NexCoin’s ecosystem, this collaboration aims to empower users with both knowledge and earnings potential."
   },
   {
     "id": 8,
     "title": "NexCoin Marketplace: Buy, Sell, and Trade",
-    "imageUrl": "./assets/new.jpg",
+    "imageUrl": "/assets/new.jpg",
     "content": "The long-anticipated NexCoin Marketplace has officially launched, allowing users to buy, sell, and trade digital goods, NFTs, and services using NexCoin as the native currency. Sellers can set prices, offer promotions, and list verified digital products, while buyers enjoy a secure, peer-reviewed environment. New categories include virtual art, memberships, consulting services, and more. Smart contract-based transactions ensure fairness, and an integrated reputation system helps maintain trust. The marketplace is a huge step toward utility and real-world value within the NexCoin ecosystem."
   },
   {
     "id": 9,
     "title": "Daily Challenges Now Available for Bonus Coins",
-    "imageUrl": "./assets/new.jpg",
+    "imageUrl": "/assets/new.jpg",
     "content": "To keep things exciting, NexCoin has introduced Daily Challenges that reward users for completing specific tasks such as inviting friends, completing a mining session, or interacting with community posts. Each challenge offers bonus NexCoin upon completion and contributes to a weekly leaderboard. Special achievement badges are also awarded for streaks and challenge completion. The feature encourages consistent engagement and adds a layer of gamification that appeals to casual and active users alike."
   },
   {
     "id": 10,
     "title": "NexCoin Surpasses 1 Million Active Users",
-    "imageUrl": "./assets/new.jpg",
+    "imageUrl": "/assets/new.jpg",
     "content": "In a major milestone, NexCoin has officially surpassed 1 million active users worldwide. This growth is a testament to the platform’s increasing popularity and strong community support. The team celebrated this achievement with an AMA (Ask Me Anything) session, outlining future plans including global expansion, DeFi integrations, and enhanced mining protocols. As a token of appreciation, all users received a commemorative NFT and limited-edition airdrop. NexCoin’s future looks bright as it continues to gain momentum across the crypto space."
   }
 ]

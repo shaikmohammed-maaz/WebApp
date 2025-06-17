@@ -17,7 +17,7 @@
   align-items: center;
 }
 .logo-circle {
-  background: #FFD600;
+  background: #39FF14;
   color: #111;
   font-weight: bold;
   font-size: 2rem;
@@ -32,7 +32,7 @@
 .logo-text {
   font-size: 2rem;
   font-weight: 600;
-  color: #FFD600;
+  color: #39FF14;
 }
 .header-icons {
   display: flex;
@@ -102,7 +102,7 @@
 }
 .coin-usd {
   font-size: 1.3rem;
-  color: #FFD600;
+  color: #39FF14;
   margin-top: 4px;
 }
 .mining-section {
@@ -112,7 +112,7 @@
   margin-bottom: 24px;
 }
 .mining-icon {
-  background: #FFD600;
+  background: #39FF14;
   border-radius: 50%;
   width: 80px;
   height: 80px;
@@ -171,7 +171,7 @@
   gap: 2px;
 }
 .invite-link {
-  color: #FFD600;
+  color: #39FF14;
   font-weight: 500;
   cursor: pointer;
 }
@@ -192,17 +192,17 @@
 .news-item {
   display: flex;
   align-items: center;
-  background: #18120b;
+  background: #000000;
   border-radius: 16px;
   box-shadow: 0 2px 8px #000a;
   cursor: pointer;
   padding: 12px 16px;
   transition: box-shadow 0.2s, background 0.2s;
-  border: 1px solid rgba(255, 224, 102, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
 }
 .news-item:hover {
   background: #222;
-  box-shadow: 0 4px 16px #ffe06633;
+  box-shadow: 0 4px 16px #00000033;
 }
 .news-image {
   width: 64px;
@@ -210,10 +210,10 @@
   object-fit: contain;
   border-radius: 12px;
   margin-right: 18px;
-  background: #222;
+  background: #000000;
 }
 .news-title {
-  color: #ffe066;
+  color: #39FF14;
   font-size: 18px;
   font-weight: 500;
 }
@@ -224,7 +224,7 @@
   border-radius: 18px;
   box-shadow: 0 2px 12px #000a;
   padding: 24px;
-  color: #ffe066;
+  color: #39FF14;
 }
 .news-detail-image {
   width: 100%;
@@ -236,12 +236,12 @@
 }
 .news-content {
   font-size: 16px;
-  color: #ffe066;
+  color: #39FF14;
   margin-top: 12px;
 }
 .back-btn {
-  background: #222;
-  color: #ffe066;
+  background: #000000;
+  color: #39FF14;
   border: none;
   border-radius: 8px;
   padding: 8px 18px;
@@ -251,6 +251,6 @@
   transition: background 0.2s;
 }
 .back-btn:hover {
-  background: #ffe066;
-  color: #18120b;
+  background: #39FF14;
+  color: #000000;
 }

@@ -65,6 +65,8 @@ body {
   flex-direction: column;
   min-height: 100vh;
   position: relative;
+  margin: 0;
+  padding: 0;
 }
 
 .page-content {
@@ -78,13 +80,21 @@ body {
   padding-bottom: 120px; /* Large enough to always clear the bottom nav */
 }
 
+.home-container, .profile-container, .wallet-container, .mining-container {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100vw;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
 .bottom-nav {
   position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
   height: 64px;
-  background: #18120b;
+  background: #000000;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -94,18 +104,20 @@ body {
 }
 
 .nav-link {
-  color: #ffe066;
+  color: #00ff41;
   text-decoration: none;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 12px;
-  opacity: 0.7;
-  transition: opacity 0.2s;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.1em;
+  transition: color 0.2s;
 }
 
-.nav-link.active {
-  opacity: 1;
+.nav-link.active, .nav-link:hover {
+  color: #39ff14;
+  text-shadow: 0 0 8px #00ff41cc;
 }
 
 .nav-link.active .material-symbols-outlined,
@@ -127,4 +139,14 @@ body {
   font-feature-settings: 'liga';
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
+}
+
+.app-logo-title {
+  margin-bottom: 8px;
+}
+
+.app-title {
+  color: #00ff41;
+  text-shadow: 0 0 8px #00ff41cc;
+  font-family: 'Share Tech Mono', 'Fira Mono', 'Consolas', monospace;
 }
