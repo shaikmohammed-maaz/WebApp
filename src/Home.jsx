@@ -93,6 +93,9 @@ function MiningCountdown({ coins, setCoins, baseRate = 1, userName = "User" }) {
       <div className="streak-bar" aria-label="Streak Progress">
         <div className="streak-bar-inner" style={{ width: `${streakProgress * 100}%` }} />
       </div>
+      <div className="mining-progress-bar" aria-label="Mining Progress">
+        <div className="mining-progress-inner" style={{ width: `${Math.max(0, Math.min(progress * 100, 100))}%` }} />
+      </div>
       <div className="mining-timer">{formatTime(time)}</div>
       <button
         className="action-btn"

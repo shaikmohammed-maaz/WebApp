@@ -21,6 +21,7 @@
 
 body, .main-bg {
   font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-size: 1.02rem;
   background: var(--background-gradient);
   min-height: 100vh;
   margin: 0;
@@ -38,15 +39,29 @@ body, .main-bg {
   position: relative;
 }
 
-.home-header {
-  margin-top: 2.2rem;
-  margin-bottom: 1.2rem;
+.home-header, .main-header {
+  margin-top: 1.1rem;
+  margin-bottom: 0.7rem;
   width: 100%;
-  max-width: 540px;
+  max-width: 98vw;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  padding: 0 1.5rem;
+  padding: 0 0.7rem;
+}
+.main-header img, .home-header img {
+  height: 40px !important;
+  width: 40px !important;
+  margin-right: 10px !important;
+  border-radius: 10px !important;
+  box-shadow: 0 0 6px #00ff41cc !important;
+}
+.app-title {
+  font-size: 1.15rem !important;
+  font-weight: 700;
+  color: #2CFF05;
+  text-shadow: 0 0 4px #00ff41cc;
+  letter-spacing: 0.5px;
 }
 
 .divider {
@@ -59,23 +74,21 @@ body, .main-bg {
 }
 
 .greeting {
-  font-size: 1.18rem;
+  font-size: 0.98rem;
   color: var(--text-secondary);
   font-weight: 500;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
   margin-left: 0.2rem;
   letter-spacing: 0.01em;
   text-shadow: 0 1px 8px #000a;
 }
 
 .mining-card {
-  width: 100%;
-  max-width: 420px;
-  background: var(--card-bg);
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow-main);
+  max-width: 98vw;
+  width: 98vw;
+  padding: 0px; /* less side padding */
+  border-radius: 18px;
   margin: 0 auto 2.2rem auto;
-  padding: 2.2rem 1.5rem 1.7rem 1.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -90,26 +103,64 @@ body, .main-bg {
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-.mining-card .balance {
-  font-size: 2.7rem;
-  font-weight: 700;
-  color: var(--text-main);
-  margin-bottom: 0.2rem;
-  letter-spacing: 0.01em;
-  text-shadow: 0 2px 12px #000a;
+.mining-card .pickaxe {
+  width: 90px;
+  height: 90px;
+  margin: 1.1rem auto 1.3rem auto;
+  display: block;
 }
 
-.mining-card .usd {
-  font-size: 1.2rem;
-  color: var(--accent);
+.mining-card .greeting {
+  font-size: 1.18rem;
+  margin-bottom: 1.1rem;
+}
+
+.mining-card .balance {
+  font-size: 2.1rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.mining-card .usd-balance {
+  font-size: 1.15rem;
+  color: #2CFF05;
   margin-bottom: 0.7rem;
+}
+
+.mining-card .streak {
+  font-size: 1.02rem;
+  margin-bottom: 0.7rem;
+}
+
+.mining-card .countdown {
+  font-size: 1.18rem;
+  font-weight: 600;
+  margin-bottom: 1.1rem;
+}
+
+/* Progress Bar for Mining */
+.mining-progress-bar {
+  width: 90%;
+  max-width: 220px;
+  height: 10px;
+  background: #232526;
+  border-radius: 8px;
+  margin: 0.7rem auto 1.1rem auto;
+  overflow: hidden;
+  box-shadow: 0 1px 6px #2cff0522;
+}
+.mining-progress-inner {
+  height: 100%;
+  background: var(--button-gradient);
+  border-radius: 8px;
+  transition: width 0.5s cubic-bezier(.4,1.4,.6,1);
 }
 
 .mining-ring {
   position: relative;
-  width: 120px;
-  height: 120px;
-  margin-bottom: 1.2rem;
+  width: 64px;
+  height: 64px;
+  margin-bottom: 0.7rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -118,7 +169,7 @@ body, .main-bg {
 .mining-ring .pulse {
   position: absolute;
   top: 50%; left: 50%;
-  width: 120px; height: 120px;
+  width: 64px; height: 64px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(44,255,5,0.18) 0%, rgba(44,255,5,0.04) 80%, transparent 100%);
   transform: translate(-50%, -50%);
@@ -135,8 +186,8 @@ body, .main-bg {
 .mining-icon {
   position: relative;
   z-index: 2;
-  width: 64px;
-  height: 64px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   background: var(--glass-bg);
   display: flex;
@@ -145,9 +196,19 @@ body, .main-bg {
   box-shadow: 0 2px 12px #2cff0522;
 }
 
+.mining-icon img {
+  width: 90px !important;
+  height: 90px !important;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 0 8px #2CFF05);
+}
+
 .icon-pickaxe {
-  width: 38px;
-  height: 38px;
+  width: 32px;
+  height: 32px;
   display: inline-block;
   background-image: url('data:image/svg+xml;utf8,<svg fill="%232CFF05" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2 12l10-9 10 9-2 2-8-7-8 7z"/></svg>');
   background-size: contain;
@@ -155,14 +216,10 @@ body, .main-bg {
 }
 
 .streak-bar {
-  width: 100%;
-  max-width: 260px;
-  height: 12px;
-  background: #232526;
-  border-radius: 8px;
-  margin: 1.1rem 0 0.7rem 0;
-  overflow: hidden;
-  box-shadow: 0 1px 6px #2cff0522;
+  max-width: 120px;
+  height: 6px;
+  border-radius: 3px;
+  margin: 0.5rem 0 0.4rem 0;
 }
 .streak-bar-inner {
   height: 100%;
@@ -171,30 +228,30 @@ body, .main-bg {
   transition: width 0.5s cubic-bezier(.4,1.4,.6,1);
 }
 .streak-label {
-  font-size: 0.98rem;
+  font-size: 0.8rem;
   color: var(--text-secondary);
   margin-bottom: 0.2rem;
   text-align: center;
+  padding-top: 2%;
 }
 
 .mining-timer {
-  font-size: 1.5rem;
+  font-size: 0.95rem;
   color: var(--text-main);
   font-family: monospace;
-  margin-bottom: 1.2rem;
+  margin-bottom: 0.5rem;
   margin-top: 0.2rem;
 }
 
 .action-btn {
-  width: 100%;
-  max-width: 320px;
-  padding: 1.1rem 0;
+  max-width: 98vw;
+  padding: 0.6rem 0;
   margin: 0.7rem 0 0.2rem 0;
   border: none;
-  border-radius: 32px;
+  border-radius: 18px;
   background: var(--button-gradient);
   color: #fff;
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 700;
   box-shadow: var(--button-shadow);
   cursor: pointer;
@@ -240,14 +297,18 @@ body, .main-bg {
 }
 
 .referral-card {
-  width: 100%;
-  max-width: 420px;
+  max-width: 92vw;
+  width: 86vw;
+  padding: 0.7rem 0.4rem 0.7rem 0.4rem;
+  border-radius: 12px;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
   background: var(--card-bg);
-  border-radius: var(--border-radius);
+  border-radius: 16px;
   box-shadow: var(--shadow-card);
   border: 2.5px solid var(--primary-green);
   margin: 2.2rem auto 0 auto;
-  padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+  padding: 1rem 0.7rem 1rem 0.7rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -262,44 +323,43 @@ body, .main-bg {
   margin-bottom: 0.7rem;
 }
 .avatar {
-  width: 36px;
-  height: 36px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
   background: var(--primary-green-dark);
   border: 2px solid #fff;
-  margin-right: -10px;
+  margin-right: -6px;
   box-shadow: 0 2px 8px #2cff0533;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   color: #fff;
   font-weight: 600;
 }
 .avatar:last-child { margin-right: 0; }
 
 .referral-title {
-  font-size: 1.18rem;
+  font-size: 1rem;
   color: var(--text-main);
   font-weight: 600;
   margin-bottom: 0.3rem;
   text-align: center;
 }
 .referral-desc {
-  font-size: 1rem;
+  font-size: 0.92rem;
   color: var(--text-secondary);
   margin-bottom: 1.1rem;
   text-align: center;
 }
 .invite-btn {
-  width: 100%;
-  max-width: 260px;
-  padding: 0.9rem 0;
+  max-width: 98vw;
+  padding: 0.6rem 0;
   border: none;
-  border-radius: 32px;
+  border-radius: 18px;
   background: var(--button-gradient);
   color: #fff;
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   font-weight: 700;
   box-shadow: var(--button-shadow);
   cursor: pointer;
@@ -335,11 +395,9 @@ body, .main-bg {
 }
 
 .group-progress-bar {
-  width: 100%;
-  max-width: 220px;
-  height: 10px;
-  background: #232526;
-  border-radius: 8px;
+  max-width: 100px;
+  height: 6px;
+  border-radius: 3px;
   margin: 1.1rem 0 0.7rem 0;
   overflow: hidden;
   box-shadow: 0 1px 6px #2cff0522;
@@ -351,7 +409,7 @@ body, .main-bg {
   transition: width 0.5s cubic-bezier(.4,1.4,.6,1);
 }
 .group-progress-label {
-  font-size: 0.95rem;
+  font-size: 0.8rem;
   color: var(--text-secondary);
   margin-bottom: 0.2rem;
   text-align: center;
@@ -374,29 +432,54 @@ body, .main-bg {
   100% { transform: rotate(-18deg) scale(1.04); }
 }
 
+.section-header, .news-title {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* Match secondary text */
+.text-secondary, .news-date, .greeting {
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+}
+
+/* Match main text */
+.text-main {
+  color: var(--text-main);
+  font-size: 1.02rem;
+}
+
 @media (max-width: 600px) {
-  .main-bg, .home-header, .mining-card, .referral-card {
-    max-width: 98vw;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+  .main-header img, .home-header img {
+    height: 32px !important;
+    width: 32px !important;
+    margin-right: 8px !important;
+    border-radius: 8px !important;
   }
-  .mining-card, .referral-card {
-    padding: 1.2rem 0.7rem 1.1rem 0.7rem;
+  .app-title {
+    font-size: 1.4rem !important;
   }
-  .mining-ring {
-    width: 90px; height: 90px;
+  .mining-card .balance {
+    font-size: 1.5rem;
   }
-  .mining-ring .pulse {
-    width: 90px; height: 90px;
+  .mining-card .usd {
+    font-size: 1.2rem;
   }
-  .mining-icon {
-    width: 44px; height: 44px;
+  .greeting {
+    font-size: 1.1rem;
   }
-  .icon-pickaxe {
-    width: 28px; height: 28px;
+  .mining-ring, .mining-ring .pulse {
+    width: 88px;
+    height: 88px;
   }
-  .balance {
-    font-size: 2.1rem;
+  .mining-icon, .pickaxe-animate, .mining-icon img {
+    width: 58px !important;
+    height: 58px !important;
+  }
+  .mining-icon img {
+    width: 64px !important;
+    height: 64px !important;
   }
 }
 
