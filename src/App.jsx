@@ -4,9 +4,11 @@ import { BrowserRouter as Router, Routes, Route, useLocation, Link } from 'react
 import './App.css'
 import Home from './Home.jsx'
 import Profile from './Profile.jsx'
-import Wallet from './Wallet.jsx'
+import BlogList from './BlogList.jsx';
+import BlogDetail from './BlogDetail.jsx';
 import News from './News.jsx'
 import NewsList from './NewsList.jsx'
+import MatrixBackground from './MatrixBackground.jsx';
 
 function MaterialIcon({ name, active }) {
   return (
@@ -27,7 +29,7 @@ function BottomNav() {
   const navItems = [
     { to: '/profile', name: 'account_box', label: 'Profile' },
     { to: '/WebApp', name: 'home', label: 'Home' },
-    { to: '/wallet', name: 'wallet', label: 'Wallet' },
+    { to: '/wallet', name: 'newsmode', label: 'Blog' },
     { to: '/more', name: 'more_vert', label: 'More' },
   ]
   return (
@@ -60,11 +62,15 @@ function App() {
 
   return (
     <Router>
-      <div className="app-container">
+      <div style={{ position: 'fixed', inset: 0, zIndex: 0, pointerEvents: 'none' }}>
+        <MatrixBackground />
+      </div>
+      <div className="app-container" style={{ position: 'relative', zIndex: 1 }}>
         <Routes>
           <Route path="/WebApp" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/wallet" element={<Wallet />} />
+          <Route path="/wallet" element={<BlogList />} />
+          <Route path="/blog/:id" element={<BlogDetail />} />
           <Route path="/more" element={<More />} />
           <Route path="/news/:id" element={<News />} />
         </Routes>

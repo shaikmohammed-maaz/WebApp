@@ -1,0 +1,41 @@
+[
+  {
+    "id": "1",
+    "title": "Welcome to Crypto Insights!",
+    "body": "We’re thrilled to officially welcome you to Crypto Insights, the go-to destination for all things related to our crypto project and the ever-evolving world of digital assets. With this blog, we aim to build a strong and transparent bridge between our team and the community. Expect timely updates on project milestones, exclusive behind-the-scenes insights, comprehensive tutorials to help you get the most out of our ecosystem, and in-depth analysis of market trends. Whether you're a seasoned crypto veteran or just beginning your journey into decentralized finance, there will be something here for everyone. Stay tuned—we’re just getting started, and the best is yet to come!",
+    "authorId": "tg_123456789",
+    "authorName": "Alice Crypto",
+    "createdAt": "2025-06-01T10:00:00Z",
+    "updatedAt": "2025-06-01T10:00:00Z",
+    "bannerImageUrl": "https://media.istockphoto.com/id/1465618017/photo/businessmen-investor-think-before-buying-stock-market-investment-using-smartphone-to-analyze.jpg?s=612x612&w=0&k=20&c=YNEkfoME1jbz6FUJImxCQtaGZZntrf7u-Byxmgk4pOY=",
+    "tags": ["announcement", "crypto"],
+    "summary": "Introducing our official blog for project updates and news.",
+    "published": true
+  },
+  {
+    "id": "2",
+    "title": "How to Connect Your Wallet",
+    "body": "Connecting your crypto wallet is one of the first and most important steps to engaging with decentralized applications, and we’ve made sure the process is as straightforward as possible. Simply click on the 'Connect Wallet' button located on the dashboard. From there, you’ll be prompted to choose your preferred blockchain or wallet provider—whether it’s MetaMask, Trust Wallet, Ledger, or any other compatible option. Once selected, just follow the on-screen prompts to authorize the connection. This process is secure, seamless, and takes less than a minute to complete. Should you encounter any issues along the way, our dedicated support team is ready to assist you every step of the way. Getting started with our platform has never been easier!",
+    "authorId": "tg_987654321",
+    "authorName": "Bob Blockchain",
+    "createdAt": "2025-06-05T14:30:00Z",
+    "updatedAt": "2025-06-05T15:00:00Z",
+    "bannerImageUrl": "https://media.istockphoto.com/id/1465618017/photo/businessmen-investor-think-before-buying-stock-market-investment-using-smartphone-to-analyze.jpg?s=612x612&w=0&k=20&c=YNEkfoME1jbz6FUJImxCQtaGZZntrf7u-Byxmgk4pOY=",
+    "tags": ["guide", "wallet", "onboarding"],
+    "summary": "A step-by-step guide to connecting your crypto wallet.",
+    "published": true
+  },
+  {
+    "id": "3",
+    "title": "Understanding Smart Contracts",
+    "body": "Smart contracts are the backbone of decentralized applications, enabling trustless transactions and automated processes without the need for intermediaries. In essence, a smart contract is a self-executing contract with the terms of the agreement directly written into code. They run on blockchain networks, ensuring transparency and security. For example, when you interact with our platform, smart contracts handle everything from token transfers to executing trades, all while ensuring that the rules are followed as agreed upon by all parties involved. This technology not only reduces costs but also minimizes the risk of fraud or manipulation. As we continue to innovate, expect more features that leverage smart contracts to enhance your experience.",
+    "authorId": "tg_123456789",
+    "authorName": "Alice Crypto",
+    "createdAt": "2025-06-10T09:00:00Z",
+    "updatedAt": "2025-06-10T09:30:00Z",
+    "bannerImageUrl": "https://media.istockphoto.com/id/1465618017/photo/businessmen-investor-think-before-buying-stock-market-investment-using-smartphone-to-analyze.jpg?s=612x612&w=0&k=20&c=YNEkfoME1jbz6FUJImxCQtaGZZntrf7u-Byxmgk4pOY=",
+    "tags": ["education", "smart-contracts", "blockchain"],
+    "summary": "An introduction to smart contracts and their role in our ecosystem.",
+    "published": true
+  }
+]

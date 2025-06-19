@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./ProfileRedesign.css";
 import { getUserProfile, setUserProfile, ensureUserProfile } from './userUtils';
 import Header from './Header.jsx';
+import MatrixBackground from './MatrixBackground.jsx';
 
 // Default user profile data
 const defaultUser = {
@@ -102,6 +103,7 @@ const Profile = () => {
   if (showEdit) {
     return (
       <div className="profile-bg">
+        <MatrixBackground />
         <Header />
         <div className="profile-card">
           <div className="profile-avatar-glow">
@@ -134,6 +136,7 @@ const Profile = () => {
   if (showConnections) {
     return (
       <div className="profile-bg">
+        <MatrixBackground />
         <Header />
         <div className="section-card">
           <div className="section-header"><span className="icon-section icon-section-social" />Social Connections</div>
@@ -151,6 +154,7 @@ const Profile = () => {
   if (showSecurity) {
     return (
       <div className="profile-bg">
+        <MatrixBackground />
         <Header />
         <div className="section-card">
           <div className="section-header"><span className="icon-section icon-section-security" />Account & Security</div>
@@ -201,6 +205,7 @@ const Profile = () => {
 
   return (
     <div className="profile-bg">
+      <MatrixBackground />
       <Header />
       <div className="profile-card">
         <div className="profile-avatar-glow">

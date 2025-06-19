@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./HomeRedesign.css";
 import {
   getTimeRemaining,
@@ -11,7 +11,7 @@ import {
 import fireGif from "./assets/fire.gif";
 import NewsList from "./NewsList.jsx";
 import Header from './Header.jsx';
-import pickaxe from "./assets/pickaxe.png";
+import rotatingImg from "./assets/rotatingImg.png";
 
 // Mining Modal (now just a message)
 function MiningModal({ open }) {
@@ -80,9 +80,9 @@ function MiningCountdown({ coins, setCoins, baseRate = 1, userName = "User" }) {
         {miningActive && <span className="pulse" />}
         <div className="mining-icon" style={{background: 'none', boxShadow: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
           <img
-            src={pickaxe}
-            alt="Pickaxe"
-            className={miningActive ? "pickaxe-animate" : ""}
+            src={rotatingImg}
+            alt="Mining Triangle"
+            className={miningActive ? "rotating-triangle-animate" : ""}
             style={{ width: 64, height: 64, objectFit: 'contain', display: 'block', filter: 'drop-shadow(0 0 8px #2CFF05)' }}
           />
         </div>
@@ -139,6 +139,7 @@ const Home = () => {
 
   return (
     <div className="main-bg">
+      {/* <MatrixBackground /> removed, now global */}
       <Header />
       <div className="divider" />
       <main style={{ width: '100%', maxWidth: 540, margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
