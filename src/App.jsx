@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useInitData, useThemeParams } from '@vkruglikov/react-telegram-web-app'
-import { BrowserRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useLocation, Link, Navigate } from 'react-router-dom'
 import './App.css'
 import Home from './Home.jsx'
 import Profile from './Profile.jsx'
@@ -9,6 +9,8 @@ import BlogDetail from './BlogDetail.jsx';
 import News from './News.jsx'
 import NewsList from './NewsList.jsx'
 import MatrixBackground from './MatrixBackground.jsx';
+import Login from './Login.jsx';
+import Signup from './Signup.jsx';
 
 function MaterialIcon({ name, active }) {
   return (
@@ -55,28 +57,86 @@ function More() {
   );
 }
 
+function RequireAuth({ children }) {
+  // Replace with your real auth logic (e.g., Telegram initData or localStorage)
+  const isLoggedIn = Boolean(localStorage.getItem('nexcoin_logged_in'));
+  const location = useLocation();
+  if (!isLoggedIn) {
+    return <Navigate to="/login" state={{ from: location }} replace />;
+  }
+  return children;
+}
+
 function App() {
   const [count, setCount] = useState(0)
   const initDataUnsafe = useInitData();
   const themeParams = useThemeParams();
+  const location = useLocation();
+
+  // Hide BottomNav on login and signup pages
+  const hideNav = location.pathname === "/login" || location.pathname === "/signup";
 
   return (
-    <Router>
+    <>
       <div style={{ position: 'fixed', inset: 0, zIndex: 0, pointerEvents: 'none' }}>
         <MatrixBackground />
       </div>
       <div className="app-container" style={{ position: 'relative', zIndex: 1 }}>
         <Routes>
-          <Route path="/WebApp" element={<Home />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/wallet" element={<BlogList />} />
-          <Route path="/blog/:id" element={<BlogDetail />} />
-          <Route path="/more" element={<More />} />
-          <Route path="/news/:id" element={<News />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+          <Route
+            path="/WebApp"
+            element={
+              <RequireAuth>
+                <Home />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <RequireAuth>
+                <Profile />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/wallet"
+            element={
+              <RequireAuth>
+                <BlogList />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/blog/:id"
+            element={
+              <RequireAuth>
+                <BlogDetail />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/more"
+            element={
+              <RequireAuth>
+                <More />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/news/:id"
+            element={
+              <RequireAuth>
+                <News />
+              </RequireAuth>
+            }
+          />
         </Routes>
-        <BottomNav />
+        {!hideNav && <BottomNav />}
       </div>
-    </Router>
+    </>
   )
 }
 

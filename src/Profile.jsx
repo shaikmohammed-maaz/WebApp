@@ -4,6 +4,10 @@ import { getUserProfile, setUserProfile, ensureUserProfile } from './userUtils';
 import Header from './Header.jsx';
 import MatrixBackground from './MatrixBackground.jsx';
 import avatar from './assets/avatar.png';
+import { signOut } from "firebase/auth";
+import { auth } from "./firebase"; // Make sure this path matches your project
+import { useNavigate } from "react-router-dom"; // Use Navigate for redirecting
+
 
 // Default user profile data
 const defaultUser = {
@@ -100,6 +104,17 @@ const Profile = () => {
   const [showSignoutDialog, setShowSignoutDialog] = useState(false);
   const profileComplete = 0.8; // 80% complete, example
   if (!user) return <div>Loading...</div>;
+  const navigate = useNavigate(); // Use navigate for redirecting
+  const handleSignOut = async () => {
+    try {
+      console.log("Signing out...");
+      await signOut(auth);
+      localStorage.removeItem("nexcoin_logged_in");
+      navigate("/login") // Or use navigate("/login") if using react-router
+    } catch (err) {
+      alert("Sign out failed. Please try again.");
+    }
+  };
 
   if (showEdit) {
     return (
@@ -196,7 +211,7 @@ const Profile = () => {
             <div className="modal-content">
               <h3>Sign out of your account?</h3>
               <button className="section-action-btn" onClick={()=>setShowSignoutDialog(false)}>Cancel</button>
-              <button className="section-action-btn" onClick={()=>{/* handle signout */}}>Sign Out</button>
+              <button className="section-action-btn" onClick={handleSignOut}>Sign Out</button>
             </div>
           </div>
         )}
@@ -323,7 +338,7 @@ const Profile = () => {
           <div className="modal-content">
             <h3>Sign out of your account?</h3>
             <button className="section-action-btn" onClick={()=>setShowSignoutDialog(false)}>Cancel</button>
-            <button className="section-action-btn" onClick={()=>{/* handle signout */}}>Sign Out</button>
+            <button className="section-action-btn" onClick={handleSignOut}>Sign Out</button>
           </div>
         </div>
       )}
