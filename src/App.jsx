@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useInitData, useThemeParams } from '@vkruglikov/react-telegram-web-app'
 import { BrowserRouter as Router, Routes, Route, useLocation, Link, Navigate } from 'react-router-dom'
+import {useAuth} from './AuthProvider.jsx'
 import './App.css'
 import Home from './Home.jsx'
 import Profile from './Profile.jsx'
@@ -58,12 +59,9 @@ function More() {
 }
 
 function RequireAuth({ children }) {
-  // Replace with your real auth logic (e.g., Telegram initData or localStorage)
-  const isLoggedIn = Boolean(localStorage.getItem('nexcoin_logged_in'));
-  const location = useLocation();
-  if (!isLoggedIn) {
-    return <Navigate to="/login" state={{ from: location }} replace />;
-  }
+  const { user, loading } = useAuth();
+  if (loading) return <div>Loading...</div>;
+  if (!user) return <Navigate to="/login" replace />;
   return children;
 }
 

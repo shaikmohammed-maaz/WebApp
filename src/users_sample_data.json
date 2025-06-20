@@ -1,0 +1,852 @@
+{
+    "user_0": {
+        "userId": "user_0",
+        "username": "lucerocody",
+        "email": "charlene09@example.org",
+        "phone": "7176346360",
+        "passwordHash": "689f9d449bbabc3dd4894612776a78af49c427633aec1b0d3f224715d179e3ce",
+        "profilePicture": "avatar",
+        "referralCode": "REF089VIZ",
+        "referredBy": "REF591KSQ",
+        "wallet": {
+            "walletAddress": "37ee1e1cc4b5f8e4300c8a96d435b9b15d38b63f",
+            "balance": 174.95,
+            "transactions": [
+                {
+                    "txId": "1ee8bbc44779d1b3fbf43e2af36a8f72beab371e",
+                    "type": "deposit",
+                    "amount": 124.03,
+                    "status": "pending",
+                    "timestamp": "2025-06-20T11:53:27.099029Z"
+                },
+                {
+                    "txId": "59da9afd59322dac44d87928e3dec348ad6f7da5",
+                    "type": "withdrawal",
+                    "amount": 169.93,
+                    "status": "failed",
+                    "timestamp": "2025-06-18T07:25:11.013104Z"
+                }
+            ]
+        },
+        "mining": {
+            "totalMined": 801.59,
+            "currentSession": {
+                "startTime": "2025-06-20T04:54:13.743111Z",
+                "durationInMinutes": 91,
+                "coinsEarned": 9.19
+            },
+            "streak": {
+                "daysActive": 6,
+                "lastActiveDate": "2025-06-19"
+            },
+            "groupMining": {
+                "groupId": "group817",
+                "groupName": "Than",
+                "members": 9,
+                "boostPercent": 25
+            }
+        },
+        "achievements": {
+            "level": 2,
+            "badges": [
+                "Early Miner",
+                "Streak Master",
+                "Community Builder"
+            ],
+            "rank": 4,
+            "dailyChallengesCompleted": 23
+        },
+        "security": {
+            "twoFactorEnabled": false,
+            "lastLoginIP": "129.147.205.43",
+            "deviceId": "b51317f2-6ead-40a6-ab6e-57fbec72c140",
+            "location": "Mitchellborough, Netherlands Antilles"
+        },
+        "kyc": {
+            "status": "verified",
+            "fullName": "Kevin Watson",
+            "dob": "1969-05-07",
+            "idType": "Passport",
+            "idNumber": "VO316044",
+            "documentImage": "/uploads/id/late.png",
+            "selfieImage": "/uploads/selfies/argue.png",
+            "verifiedAt": "2025-06-15T10:04:05.943379Z"
+        },
+        "preferences": {
+            "language": "en",
+            "darkMode": false,
+            "notificationsEnabled": true
+        },
+        "accountStatus": {
+            "createdAt": "2025-04-27T17:55:46.747619Z",
+            "lastActive": "2025-06-20T02:04:02.555882Z",
+            "isBanned": false,
+            "banReason": null
+        }
+    },
+    "user_1": {
+        "userId": "user_1",
+        "username": "marcusmiller",
+        "email": "qdaniels@example.com",
+        "phone": "(740)611-4579x55442",
+        "passwordHash": "d4ddb1df5974ac6e51ee9435bbaad47ff4a243e7d167d32bf7021b1b14384ae3",
+        "profilePicture": "avatar",
+        "referralCode": "REF183OPL",
+        "referredBy": "REF129MYB",
+        "wallet": {
+            "walletAddress": "d7e335db7f95d6d312bea740649bbac2fcc525d8",
+            "balance": 287.09,
+            "transactions": [
+                {
+                    "txId": "b0d9fab5a4b7b3dea3587f22fa1df26b98ad3f01",
+                    "type": "deposit",
+                    "amount": 29.83,
+                    "status": "pending",
+                    "timestamp": "2025-06-16T03:06:15.538328Z"
+                },
+                {
+                    "txId": "0471bb1fd7f29039a10c491767670a825b8f6fbc",
+                    "type": "withdrawal",
+                    "amount": 32.19,
+                    "status": "pending",
+                    "timestamp": "2025-06-11T12:34:13.207901Z"
+                }
+            ]
+        },
+        "mining": {
+            "totalMined": 261.22,
+            "currentSession": {
+                "startTime": "2025-06-20T10:53:04.934319Z",
+                "durationInMinutes": 121,
+                "coinsEarned": 4.83
+            },
+            "streak": {
+                "daysActive": 14,
+                "lastActiveDate": "2025-06-19"
+            },
+            "groupMining": {
+                "groupId": "group237",
+                "groupName": "Skill",
+                "members": 7,
+                "boostPercent": 20
+            }
+        },
+        "achievements": {
+            "level": 6,
+            "badges": [
+                "Streak Master",
+                "Community Builder",
+                "Early Miner"
+            ],
+            "rank": 46,
+            "dailyChallengesCompleted": 15
+        },
+        "security": {
+            "twoFactorEnabled": false,
+            "lastLoginIP": "10.12.65.137",
+            "deviceId": "bbd19628-062f-4290-9703-7a36cc3fa939",
+            "location": "Barbarafort, Grenada"
+        },
+        "kyc": {
+            "status": "verified",
+            "fullName": "Allison Adams",
+            "dob": "1980-05-27",
+            "idType": "Driver's License",
+            "idNumber": "LR114575",
+            "documentImage": "/uploads/id/can.png",
+            "selfieImage": "/uploads/selfies/become.png",
+            "verifiedAt": "2025-06-15T10:31:31.033412Z"
+        },
+        "preferences": {
+            "language": "en",
+            "darkMode": true,
+            "notificationsEnabled": false
+        },
+        "accountStatus": {
+            "createdAt": "2025-05-15T11:07:30.970244Z",
+            "lastActive": "2025-06-19T17:35:40.428666Z",
+            "isBanned": false,
+            "banReason": null
+        }
+    },
+    "user_2": {
+        "userId": "user_2",
+        "username": "brianguzman",
+        "email": "rhoffman@example.net",
+        "phone": "001-470-831-3420x8072",
+        "passwordHash": "4eaee4cef79c26b43a5b5c15fabb755dd6a83107c6d4658fd07b8319381932af",
+        "profilePicture": "avatar",
+        "referralCode": "REF180GCZ",
+        "referredBy": "REF634XKM",
+        "wallet": {
+            "walletAddress": "8c6ff613535ec3f805064fe241fa11193342def8",
+            "balance": 179.85,
+            "transactions": [
+                {
+                    "txId": "eb86d6f3b57d4e3b7a27e9093edb06ec91904695",
+                    "type": "deposit",
+                    "amount": 20.69,
+                    "status": "confirmed",
+                    "timestamp": "2025-06-17T19:02:12.452412Z"
+                },
+                {
+                    "txId": "10c7216461c7a9472ecf6b79df19a9599f8054ed",
+                    "type": "withdrawal",
+                    "amount": 116.38,
+                    "status": "failed",
+                    "timestamp": "2025-06-12T14:57:15.235825Z"
+                }
+            ]
+        },
+        "mining": {
+            "totalMined": 676.41,
+            "currentSession": {
+                "startTime": "2025-06-19T10:58:53.855999Z",
+                "durationInMinutes": 36,
+                "coinsEarned": 9.6
+            },
+            "streak": {
+                "daysActive": 24,
+                "lastActiveDate": "2025-06-19"
+            },
+            "groupMining": {
+                "groupId": "group945",
+                "groupName": "North",
+                "members": 4,
+                "boostPercent": 15
+            }
+        },
+        "achievements": {
+            "level": 6,
+            "badges": [
+                "Community Builder",
+                "Early Miner",
+                "Streak Master"
+            ],
+            "rank": 32,
+            "dailyChallengesCompleted": 2
+        },
+        "security": {
+            "twoFactorEnabled": true,
+            "lastLoginIP": "125.95.248.42",
+            "deviceId": "051948c9-a71a-4191-b18e-6e1d3dfa53e5",
+            "location": "Baileyside, Suriname"
+        },
+        "kyc": {
+            "status": "verified",
+            "fullName": "Zachary Williams",
+            "dob": "1980-05-21",
+            "idType": "Passport",
+            "idNumber": "EI286803",
+            "documentImage": "/uploads/id/place.png",
+            "selfieImage": "/uploads/selfies/Congress.png",
+            "verifiedAt": "2025-06-14T05:14:46.450016Z"
+        },
+        "preferences": {
+            "language": "en",
+            "darkMode": true,
+            "notificationsEnabled": true
+        },
+        "accountStatus": {
+            "createdAt": "2025-05-16T13:04:12.380922Z",
+            "lastActive": "2025-06-19T00:59:49.367519Z",
+            "isBanned": false,
+            "banReason": null
+        }
+    },
+    "user_3": {
+        "userId": "user_3",
+        "username": "cameronsilva",
+        "email": "andrew31@example.com",
+        "phone": "001-800-837-6471x48938",
+        "passwordHash": "6b55f231e1f572cd15134337ec9dfe5062be82333444fd3466a5c60811535464",
+        "profilePicture": "avatar",
+        "referralCode": "REF965FDD",
+        "referredBy": "REF962VZY",
+        "wallet": {
+            "walletAddress": "63aebc214c81fad9520794abeae032609cca71bc",
+            "balance": 483.37,
+            "transactions": [
+                {
+                    "txId": "5988092af1638c9f889916a8d7d6ca24da6de790",
+                    "type": "deposit",
+                    "amount": 169.54,
+                    "status": "failed",
+                    "timestamp": "2025-06-10T15:42:40.069991Z"
+                },
+                {
+                    "txId": "8bc8174a60f7f98b0a946e2e9dd98e2a3aa7f20e",
+                    "type": "withdrawal",
+                    "amount": 180.87,
+                    "status": "confirmed",
+                    "timestamp": "2025-06-14T01:41:11.031467Z"
+                }
+            ]
+        },
+        "mining": {
+            "totalMined": 978.94,
+            "currentSession": {
+                "startTime": "2025-06-19T13:03:04.658115Z",
+                "durationInMinutes": 163,
+                "coinsEarned": 9.15
+            },
+            "streak": {
+                "daysActive": 17,
+                "lastActiveDate": "2025-06-19"
+            },
+            "groupMining": {
+                "groupId": "group052",
+                "groupName": "Trade",
+                "members": 8,
+                "boostPercent": 15
+            }
+        },
+        "achievements": {
+            "level": 6,
+            "badges": [
+                "Pro Trader",
+                "Community Builder",
+                "Streak Master"
+            ],
+            "rank": 87,
+            "dailyChallengesCompleted": 16
+        },
+        "security": {
+            "twoFactorEnabled": true,
+            "lastLoginIP": "186.96.140.153",
+            "deviceId": "60fa10c4-ac76-426d-9d21-e5b228a851e2",
+            "location": "Andrewchester, Papua New Guinea"
+        },
+        "kyc": {
+            "status": "verified",
+            "fullName": "Diana Smith",
+            "dob": "1985-08-27",
+            "idType": "Driver's License",
+            "idNumber": "LV857280",
+            "documentImage": "/uploads/id/attention.png",
+            "selfieImage": "/uploads/selfies/guy.png",
+            "verifiedAt": "2025-06-10T15:55:01.796499Z"
+        },
+        "preferences": {
+            "language": "en",
+            "darkMode": false,
+            "notificationsEnabled": false
+        },
+        "accountStatus": {
+            "createdAt": "2025-04-25T15:31:37.341390Z",
+            "lastActive": "2025-06-19T06:02:30.070144Z",
+            "isBanned": false,
+            "banReason": null
+        }
+    },
+    "user_4": {
+        "userId": "user_4",
+        "username": "yjackson",
+        "email": "randallphillips@example.net",
+        "phone": "(956)677-3862",
+        "passwordHash": "b7be4faf617739c41660aba1d4cf8683dd70f6af95d61924151e07dbe3dea5db",
+        "profilePicture": "avatar",
+        "referralCode": "REF758NPT",
+        "referredBy": "REF712LYF",
+        "wallet": {
+            "walletAddress": "23e7613d7286432905716333a4d9994080d5158f",
+            "balance": 305.16,
+            "transactions": [
+                {
+                    "txId": "b9e7f3168091888611ee275dd210c02026e8c4fc",
+                    "type": "deposit",
+                    "amount": 134.57,
+                    "status": "confirmed",
+                    "timestamp": "2025-06-17T06:19:15.078610Z"
+                },
+                {
+                    "txId": "db17867f912cad111d5672a97ea7c35948e2a152",
+                    "type": "withdrawal",
+                    "amount": 45.38,
+                    "status": "failed",
+                    "timestamp": "2025-06-20T05:48:07.170756Z"
+                }
+            ]
+        },
+        "mining": {
+            "totalMined": 727.02,
+            "currentSession": {
+                "startTime": "2025-06-20T05:07:33.350281Z",
+                "durationInMinutes": 62,
+                "coinsEarned": 9.51
+            },
+            "streak": {
+                "daysActive": 1,
+                "lastActiveDate": "2025-06-19"
+            },
+            "groupMining": {
+                "groupId": "group809",
+                "groupName": "His",
+                "members": 3,
+                "boostPercent": 20
+            }
+        },
+        "achievements": {
+            "level": 6,
+            "badges": [
+                "Streak Master",
+                "Early Miner",
+                "Community Builder"
+            ],
+            "rank": 5,
+            "dailyChallengesCompleted": 25
+        },
+        "security": {
+            "twoFactorEnabled": false,
+            "lastLoginIP": "123.105.164.58",
+            "deviceId": "72d446e1-23d3-4ffe-a2f5-6b7da50e9844",
+            "location": "North Kathrynmouth, French Guiana"
+        },
+        "kyc": {
+            "status": "verified",
+            "fullName": "Mary Gutierrez",
+            "dob": "1971-06-07",
+            "idType": "Driver's License",
+            "idNumber": "BN594575",
+            "documentImage": "/uploads/id/four.png",
+            "selfieImage": "/uploads/selfies/PM.png",
+            "verifiedAt": "2025-06-17T01:36:14.203185Z"
+        },
+        "preferences": {
+            "language": "en",
+            "darkMode": false,
+            "notificationsEnabled": true
+        },
+        "accountStatus": {
+            "createdAt": "2025-05-11T07:44:51.961723Z",
+            "lastActive": "2025-06-19T11:58:52.205041Z",
+            "isBanned": false,
+            "banReason": null
+        }
+    },
+    "user_5": {
+        "userId": "user_5",
+        "username": "michael04",
+        "email": "hsoto@example.com",
+        "phone": "418-337-4620",
+        "passwordHash": "f8eadde0356dd3237addbb3bdea1e7b74ef8f92cca3d146d30d8584411b79d2d",
+        "profilePicture": "avatar",
+        "referralCode": "REF727PGQ",
+        "referredBy": "REF581OAB",
+        "wallet": {
+            "walletAddress": "ea8bd39f8ea79e6aa83ba57f62ec7d793764a589",
+            "balance": 355.1,
+            "transactions": [
+                {
+                    "txId": "2fbc7dff4639fa49085a4dd0d682f788eba81cfa",
+                    "type": "deposit",
+                    "amount": 21.28,
+                    "status": "confirmed",
+                    "timestamp": "2025-06-13T04:32:26.842456Z"
+                },
+                {
+                    "txId": "9faf727b16b694c3ce26ea523645ebf35c59fe5a",
+                    "type": "withdrawal",
+                    "amount": 24.05,
+                    "status": "pending",
+                    "timestamp": "2025-06-15T09:57:32.181106Z"
+                }
+            ]
+        },
+        "mining": {
+            "totalMined": 635.46,
+            "currentSession": {
+                "startTime": "2025-06-18T04:17:32.524832Z",
+                "durationInMinutes": 108,
+                "coinsEarned": 2.5
+            },
+            "streak": {
+                "daysActive": 5,
+                "lastActiveDate": "2025-06-19"
+            },
+            "groupMining": {
+                "groupId": "group191",
+                "groupName": "We",
+                "members": 8,
+                "boostPercent": 15
+            }
+        },
+        "achievements": {
+            "level": 3,
+            "badges": [
+                "Pro Trader",
+                "Early Miner",
+                "Community Builder"
+            ],
+            "rank": 40,
+            "dailyChallengesCompleted": 0
+        },
+        "security": {
+            "twoFactorEnabled": false,
+            "lastLoginIP": "9.56.82.87",
+            "deviceId": "19c86582-8854-416b-b3ac-863c9b885ec9",
+            "location": "South Nicole, Albania"
+        },
+        "kyc": {
+            "status": "verified",
+            "fullName": "April Lin",
+            "dob": "1990-03-17",
+            "idType": "Passport",
+            "idNumber": "CT767531",
+            "documentImage": "/uploads/id/through.png",
+            "selfieImage": "/uploads/selfies/ok.png",
+            "verifiedAt": "2025-06-14T17:25:50.821726Z"
+        },
+        "preferences": {
+            "language": "en",
+            "darkMode": false,
+            "notificationsEnabled": false
+        },
+        "accountStatus": {
+            "createdAt": "2025-05-18T06:42:26.042354Z",
+            "lastActive": "2025-06-19T18:28:41.082281Z",
+            "isBanned": false,
+            "banReason": null
+        }
+    },
+    "user_6": {
+        "userId": "user_6",
+        "username": "bneal",
+        "email": "slee@example.org",
+        "phone": "611.280.4801x57807",
+        "passwordHash": "2c4a92d2b2de7b1aee83e5d71e5c23772ab938c41c5fdf91c0506c6d3ff2f2b4",
+        "profilePicture": "avatar",
+        "referralCode": "REF571TOS",
+        "referredBy": "REF512QIK",
+        "wallet": {
+            "walletAddress": "9d6b46f485a56598880fb84b5731d2a9a81bc9c3",
+            "balance": 403.29,
+            "transactions": [
+                {
+                    "txId": "461436d6f176d80d435f466412b563154a8cb387",
+                    "type": "deposit",
+                    "amount": 71.07,
+                    "status": "confirmed",
+                    "timestamp": "2025-06-14T12:58:24.607468Z"
+                },
+                {
+                    "txId": "cddb23d7c7aa3f4df0bbd14b1a627429b9dca0e1",
+                    "type": "withdrawal",
+                    "amount": 13.58,
+                    "status": "failed",
+                    "timestamp": "2025-06-12T17:45:28.339934Z"
+                }
+            ]
+        },
+        "mining": {
+            "totalMined": 391.64,
+            "currentSession": {
+                "startTime": "2025-06-19T10:22:55.980572Z",
+                "durationInMinutes": 60,
+                "coinsEarned": 3.48
+            },
+            "streak": {
+                "daysActive": 13,
+                "lastActiveDate": "2025-06-19"
+            },
+            "groupMining": {
+                "groupId": "group087",
+                "groupName": "Large",
+                "members": 8,
+                "boostPercent": 25
+            }
+        },
+        "achievements": {
+            "level": 3,
+            "badges": [
+                "Pro Trader",
+                "Streak Master",
+                "Community Builder"
+            ],
+            "rank": 81,
+            "dailyChallengesCompleted": 22
+        },
+        "security": {
+            "twoFactorEnabled": true,
+            "lastLoginIP": "34.229.176.201",
+            "deviceId": "2e29fd91-09db-450a-bdb1-9688b544c0b9",
+            "location": "New Shawnstad, Tunisia"
+        },
+        "kyc": {
+            "status": "verified",
+            "fullName": "Andrew Guerrero",
+            "dob": "1991-09-11",
+            "idType": "Driver's License",
+            "idNumber": "PQ458909",
+            "documentImage": "/uploads/id/explain.png",
+            "selfieImage": "/uploads/selfies/question.png",
+            "verifiedAt": "2025-06-11T15:35:12.803447Z"
+        },
+        "preferences": {
+            "language": "en",
+            "darkMode": true,
+            "notificationsEnabled": true
+        },
+        "accountStatus": {
+            "createdAt": "2025-05-20T23:54:05.305891Z",
+            "lastActive": "2025-06-20T07:09:14.848929Z",
+            "isBanned": false,
+            "banReason": null
+        }
+    },
+    "user_7": {
+        "userId": "user_7",
+        "username": "samantha41",
+        "email": "hcooper@example.org",
+        "phone": "933.223.8351",
+        "passwordHash": "95a93edd923e373cad79a9d6a751123b5d50298019fdabd611287a90a91d6897",
+        "profilePicture": "avatar",
+        "referralCode": "REF004AUG",
+        "referredBy": "REF734CKY",
+        "wallet": {
+            "walletAddress": "d243612d9a24459fd6c8089410798c396faf4e87",
+            "balance": 491.05,
+            "transactions": [
+                {
+                    "txId": "2bf04f493f1059124267c4db6595b2c8e1eebfeb",
+                    "type": "deposit",
+                    "amount": 84.32,
+                    "status": "pending",
+                    "timestamp": "2025-06-19T06:18:25.465016Z"
+                },
+                {
+                    "txId": "64afa5dfc1a569ba3a6643ca6c7a85e7020f9ec2",
+                    "type": "withdrawal",
+                    "amount": 24.88,
+                    "status": "confirmed",
+                    "timestamp": "2025-06-14T09:20:32.437586Z"
+                }
+            ]
+        },
+        "mining": {
+            "totalMined": 824.22,
+            "currentSession": {
+                "startTime": "2025-06-18T12:17:28.598961Z",
+                "durationInMinutes": 85,
+                "coinsEarned": 2.75
+            },
+            "streak": {
+                "daysActive": 3,
+                "lastActiveDate": "2025-06-19"
+            },
+            "groupMining": {
+                "groupId": "group473",
+                "groupName": "Establish",
+                "members": 10,
+                "boostPercent": 20
+            }
+        },
+        "achievements": {
+            "level": 7,
+            "badges": [
+                "Early Miner",
+                "Community Builder",
+                "Streak Master"
+            ],
+            "rank": 14,
+            "dailyChallengesCompleted": 30
+        },
+        "security": {
+            "twoFactorEnabled": true,
+            "lastLoginIP": "175.253.167.48",
+            "deviceId": "a983e5e0-ff7e-4301-90a1-c075bf06f33c",
+            "location": "Brittanyview, Myanmar"
+        },
+        "kyc": {
+            "status": "verified",
+            "fullName": "Jacqueline Williams",
+            "dob": "1986-05-01",
+            "idType": "Driver's License",
+            "idNumber": "EG953050",
+            "documentImage": "/uploads/id/training.png",
+            "selfieImage": "/uploads/selfies/key.png",
+            "verifiedAt": "2025-06-17T19:21:40.522887Z"
+        },
+        "preferences": {
+            "language": "en",
+            "darkMode": true,
+            "notificationsEnabled": true
+        },
+        "accountStatus": {
+            "createdAt": "2025-04-26T06:22:48.684910Z",
+            "lastActive": "2025-06-20T00:06:49.246445Z",
+            "isBanned": false,
+            "banReason": null
+        }
+    },
+    "user_8": {
+        "userId": "user_8",
+        "username": "haasclaudia",
+        "email": "matthew18@example.net",
+        "phone": "711.769.7279",
+        "passwordHash": "dd998d207e97dd7c6a9da4f3a0aec8843fa667134acc4435a773bd95eb8288c9",
+        "profilePicture": "avatar",
+        "referralCode": "REF477HWF",
+        "referredBy": "REF047HIW",
+        "wallet": {
+            "walletAddress": "d360f3d7b686826dea8eaa064c92cd83ee0babb4",
+            "balance": 431.54,
+            "transactions": [
+                {
+                    "txId": "c167871182b2cf5d7c2773de18c08c84eb3faced",
+                    "type": "deposit",
+                    "amount": 59.44,
+                    "status": "pending",
+                    "timestamp": "2025-06-12T22:09:27.949475Z"
+                },
+                {
+                    "txId": "eec2fdc2984a701d28eaa324de2eb69baf9d711c",
+                    "type": "withdrawal",
+                    "amount": 135.1,
+                    "status": "failed",
+                    "timestamp": "2025-06-11T18:31:19.019844Z"
+                }
+            ]
+        },
+        "mining": {
+            "totalMined": 893.05,
+            "currentSession": {
+                "startTime": "2025-06-18T06:47:59.725460Z",
+                "durationInMinutes": 99,
+                "coinsEarned": 4.42
+            },
+            "streak": {
+                "daysActive": 16,
+                "lastActiveDate": "2025-06-19"
+            },
+            "groupMining": {
+                "groupId": "group349",
+                "groupName": "Serious",
+                "members": 9,
+                "boostPercent": 25
+            }
+        },
+        "achievements": {
+            "level": 5,
+            "badges": [
+                "Streak Master",
+                "Pro Trader",
+                "Early Miner"
+            ],
+            "rank": 62,
+            "dailyChallengesCompleted": 22
+        },
+        "security": {
+            "twoFactorEnabled": false,
+            "lastLoginIP": "102.184.55.61",
+            "deviceId": "9b0cbdf7-e554-4933-bcdc-e24fc5db88d5",
+            "location": "South Hannah, Gabon"
+        },
+        "kyc": {
+            "status": "verified",
+            "fullName": "Aaron Barnes",
+            "dob": "1959-09-11",
+            "idType": "National ID",
+            "idNumber": "TO933524",
+            "documentImage": "/uploads/id/song.png",
+            "selfieImage": "/uploads/selfies/southern.png",
+            "verifiedAt": "2025-06-20T09:00:11.940812Z"
+        },
+        "preferences": {
+            "language": "en",
+            "darkMode": true,
+            "notificationsEnabled": true
+        },
+        "accountStatus": {
+            "createdAt": "2025-05-08T19:15:28.581995Z",
+            "lastActive": "2025-06-19T19:30:28.003223Z",
+            "isBanned": false,
+            "banReason": null
+        }
+    },
+    "user_9": {
+        "userId": "user_9",
+        "username": "thompsonveronica",
+        "email": "carolyn90@example.com",
+        "phone": "001-435-908-1101x56509",
+        "passwordHash": "6bf9ddd3124489b631ab2afd864a65dc739e65bc26bf3dff07ea7893f617475a",
+        "profilePicture": "avatar",
+        "referralCode": "REF417QWV",
+        "referredBy": "REF999MFQ",
+        "wallet": {
+            "walletAddress": "111c11c6c27436cd918dc815ba642ed481731730",
+            "balance": 117.34,
+            "transactions": [
+                {
+                    "txId": "d5d91cce25dfc9742f076cb0dad4d0c3a2f84756",
+                    "type": "deposit",
+                    "amount": 89.74,
+                    "status": "failed",
+                    "timestamp": "2025-06-10T17:33:21.358748Z"
+                },
+                {
+                    "txId": "f543dc6c17707d3e41f17b695a565ca76ebaf4e7",
+                    "type": "withdrawal",
+                    "amount": 185.24,
+                    "status": "failed",
+                    "timestamp": "2025-06-16T18:00:30.268512Z"
+                }
+            ]
+        },
+        "mining": {
+            "totalMined": 958.45,
+            "currentSession": {
+                "startTime": "2025-06-18T15:11:29.389875Z",
+                "durationInMinutes": 80,
+                "coinsEarned": 3.38
+            },
+            "streak": {
+                "daysActive": 5,
+                "lastActiveDate": "2025-06-19"
+            },
+            "groupMining": {
+                "groupId": "group805",
+                "groupName": "Throw",
+                "members": 8,
+                "boostPercent": 15
+            }
+        },
+        "achievements": {
+            "level": 3,
+            "badges": [
+                "Community Builder",
+                "Early Miner",
+                "Streak Master"
+            ],
+            "rank": 40,
+            "dailyChallengesCompleted": 1
+        },
+        "security": {
+            "twoFactorEnabled": false,
+            "lastLoginIP": "221.196.237.88",
+            "deviceId": "0786fa22-063a-41c8-92f6-5259949ac58f",
+            "location": "Lake Christopherchester, Greece"
+        },
+        "kyc": {
+            "status": "verified",
+            "fullName": "Kyle Hodge",
+            "dob": "1988-01-27",
+            "idType": "Driver's License",
+            "idNumber": "GC974902",
+            "documentImage": "/uploads/id/significant.png",
+            "selfieImage": "/uploads/selfies/write.png",
+            "verifiedAt": "2025-06-11T15:10:01.498747Z"
+        },
+        "preferences": {
+            "language": "en",
+            "darkMode": false,
+            "notificationsEnabled": false
+        },
+        "accountStatus": {
+            "createdAt": "2025-05-09T20:42:54.971235Z",
+            "lastActive": "2025-06-19T15:46:08.950772Z",
+            "isBanned": false,
+            "banReason": null
+        }
+    }
+}

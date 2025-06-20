@@ -1,120 +1,48 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./ProfileRedesign.css";
-import { getUserProfile, setUserProfile, ensureUserProfile } from './userUtils';
 import Header from './Header.jsx';
 import MatrixBackground from './MatrixBackground.jsx';
 import avatar from './assets/avatar.png';
 import { signOut } from "firebase/auth";
-import { auth } from "./firebase"; // Make sure this path matches your project
-import { useNavigate } from "react-router-dom"; // Use Navigate for redirecting
+import { auth } from "./firebase";
+import { useNavigate } from "react-router-dom";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
 
-
-// Default user profile data
-const defaultUser = {
-  userId: "abc123",
-  username: "cryptoMiner01",
-  email: "user@example.com",
-  phone: "+1234567890",
-  passwordHash: "hashed_password_here",
-  profilePicture: avatar,
-  referralCode: "REF123ABC",
-  referredBy: "REF987XYZ",
-  wallet: {
-    walletAddress: "0x1234abcd5678efgh9012ijkl",
-    balance: 250.75,
-    transactions: [
-      {
-        txId: "0xa1b2c3d4e5",
-        type: "deposit",
-        amount: 100,
-        status: "confirmed",
-        timestamp: "2025-06-10T15:30:00Z"
-      },
-      {
-        txId: "0xf6e7d8c9b0",
-        type: "withdrawal",
-        amount: 50,
-        status: "pending",
-        timestamp: "2025-06-11T18:00:00Z"
-      }
-    ]
-  },
-  mining: {
-    totalMined: 320.50,
-    currentSession: {
-      startTime: "2025-06-14T08:00:00Z",
-      durationInMinutes: 120,
-      coinsEarned: 5.25
-    },
-    streak: {
-      daysActive: 14,
-      lastActiveDate: "2025-06-13"
-    },
-    groupMining: {
-      groupId: "group001",
-      groupName: "BlockStorm",
-      members: 5,
-      boostPercent: 20
-    }
-  },
-  achievements: {
-    level: 5,
-    badges: ["Early Miner", "Streak Master", "Community Builder"],
-    rank: 37,
-    dailyChallengesCompleted: 18
-  },
-  security: {
-    twoFactorEnabled: true,
-    lastLoginIP: "192.168.0.2",
-    deviceId: "device-uuid-xyz",
-    location: "New York, USA"
-  },
-  kyc: {
-    status: "verified",
-    fullName: "John Doe",
-    dob: "1992-05-18",
-    idType: "Passport",
-    idNumber: "A1234567",
-    documentImage: "/uploads/id/passport.png",
-    selfieImage: "/uploads/selfies/user123.png",
-    verifiedAt: "2025-06-12T14:00:00Z"
-  },
-  preferences: {
-    language: "en",
-    darkMode: true,
-    notificationsEnabled: true
-  },
-  accountStatus: {
-    createdAt: "2025-05-01T10:00:00Z",
-    lastActive: "2025-06-13T22:45:00Z",
-    isBanned: false,
-    banReason: null
-  }
-};
-
-ensureUserProfile(defaultUser);
+const db = getFirestore();
 
 const Profile = () => {
-  const user = getUserProfile();
+  const [user, setUser] = useState(null);
   const [showEdit, setShowEdit] = useState(false);
   const [showConnections, setShowConnections] = useState(false);
   const [showSecurity, setShowSecurity] = useState(false);
   const [copied, setCopied] = useState(false);
   const [showDeleteDialog, setShowDeleteDialog] = useState(false);
   const [showSignoutDialog, setShowSignoutDialog] = useState(false);
-  const profileComplete = 0.8; // 80% complete, example
-  if (!user) return <div>Loading...</div>;
-  const navigate = useNavigate(); // Use navigate for redirecting
+  const profileComplete = 0.8; // You can calculate this based on user fields
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      if (!auth.currentUser) return;
+      const userDocRef = doc(db, "users", auth.currentUser.uid);
+      const userDocSnap = await getDoc(userDocRef);
+      if (userDocSnap.exists()) {
+        setUser(userDocSnap.data());
+      }
+    };
+    fetchUser();
+  }, []);
+
   const handleSignOut = async () => {
     try {
-      console.log("Signing out...");
       await signOut(auth);
-      localStorage.removeItem("nexcoin_logged_in");
-      navigate("/login") // Or use navigate("/login") if using react-router
+      navigate("/login");
     } catch (err) {
       alert("Sign out failed. Please try again.");
     }
   };
+
+  if (!user) return <div>Loading...</div>;
 
   if (showEdit) {
     return (

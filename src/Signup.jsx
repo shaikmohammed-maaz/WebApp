@@ -6,6 +6,7 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { auth } from "./firebase";
+import { createUserIfNotExists } from "./database"; // Make sure this import exists
 import "./HomeRedesign.css";
 import "./Login.css";
 import logo from "./assets/logo.webp";
@@ -14,6 +15,7 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
   const [pw2, setPw2] = useState("");
+  const [referral, setReferral] = useState(""); // New state for referral code
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -29,8 +31,12 @@ const Signup = () => {
     }
     setError("");
     try {
-      await createUserWithEmailAndPassword(auth, email, pw);
-      localStorage.setItem("nexcoin_logged_in", "1");
+      const userCredential = await createUserWithEmailAndPassword(auth, email, pw);
+      // Pass referral code as an extra property
+      await createUserIfNotExists({
+        ...userCredential.user,
+        referralCodeInput: referral.trim() || null,
+      });
       navigate("/WebApp", { replace: true });
     } catch (err) {
       setError(err.message);
@@ -41,8 +47,11 @@ const Signup = () => {
     setError("");
     const provider = new GoogleAuthProvider();
     try {
-      await signInWithPopup(auth, provider);
-      localStorage.setItem("nexcoin_logged_in", "1");
+      const result = await signInWithPopup(auth, provider);
+      await createUserIfNotExists({
+        ...result.user,
+        referralCodeInput: referral.trim() || null,
+      });
       navigate("/WebApp", { replace: true });
     } catch (err) {
       setError("Google signup failed.");
@@ -100,6 +109,17 @@ const Signup = () => {
               value={pw2}
               onChange={(e) => setPw2(e.target.value)}
               placeholder="Confirm your password"
+            />
+            <label className="login-label" htmlFor="signup-referral">
+              Referral Code (optional)
+            </label>
+            <input
+              id="signup-referral"
+              className="login-input"
+              type="text"
+              value={referral}
+              onChange={(e) => setReferral(e.target.value)}
+              placeholder="Enter referral code"
             />
             {error && <div className="login-error neon-green">{error}</div>}
             <button

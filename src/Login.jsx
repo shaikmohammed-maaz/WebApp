@@ -37,7 +37,6 @@ const Login = () => {
     const provider = new GoogleAuthProvider();
     try {
       await signInWithPopup(auth, provider);
-      localStorage.setItem("nexcoin_logged_in", "1");
       navigate("/WebApp", { replace: true });
     } catch (err) {
       setError("Google login failed.");

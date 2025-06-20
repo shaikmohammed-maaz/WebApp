@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Upload Dummy Users</title>
+  <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+  import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+  apiKey: "AIzaSyDO5YcqXk5nhPT2OXyCScTamwmedBEFxTE",
+
+  authDomain: "collabrianexus.firebaseapp.com",
+
+  projectId: "collabrianexus",
+
+  storageBucket: "collabrianexus.firebasestorage.app",
+
+  messagingSenderId: "1047185526287",
+
+  appId: "1:1047185526287:web:ada10cb1be8c92c0799d7a",
+
+  measurementId: "G-PNZLHYBXYT"
+
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  let dummyUsers = {};
+  fetch('./users_sample_data.json')
+    .then(res => res.json())
+    .then(data => { dummyUsers = data; });
+
+  // ✅ Updated function to handle dictionary-based users
+  async function uploadDummyUsers() {
+    for (const userId in dummyUsers) {
+      const user = dummyUsers[userId];
+      try {
+        await setDoc(doc(db, "users", user.userId), user);
+        console.log(`User ${user.userId} uploaded`);
+      } catch (err) {
+        console.error(`Error uploading user ${user.userId}:`, err);
+      }
+    }
+    alert("All dummy users uploaded!");
+  }
+
+  // Attach event listener
+  window.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('uploadBtn').onclick = uploadDummyUsers;
+  });
+</script>
+
+</head>
+<body>
+  <h1>Upload Dummy Users to Firestore</h1>
+  <button id="uploadBtn">Upload 10 Dummy Users</button>
+</body>
+</html>
