@@ -3,10 +3,10 @@ import "./ProfileRedesign.css";
 import Header from './Header.jsx';
 import MatrixBackground from './MatrixBackground.jsx';
 import avatar from './assets/avatar.png';
-import { signOut } from "firebase/auth";
+import { signOut , onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase";
 import { useNavigate } from "react-router-dom";
-import { getFirestore, doc, getDoc } from "firebase/firestore";
+import { getFirestore, doc, getDoc  } from "firebase/firestore";
 
 const db = getFirestore();
 
@@ -21,17 +21,24 @@ const Profile = () => {
   const profileComplete = 0.8; // You can calculate this based on user fields
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchUser = async () => {
-      if (!auth.currentUser) return;
-      const userDocRef = doc(db, "users", auth.currentUser.uid);
-      const userDocSnap = await getDoc(userDocRef);
-      if (userDocSnap.exists()) {
-        setUser(userDocSnap.data());
-      }
-    };
-    fetchUser();
-  }, []);
+useEffect(() => {
+  const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
+    if (!firebaseUser) {
+      setUser(null);
+      return;
+    }
+    const userDocRef = doc(db, "users", firebaseUser.uid);
+    const userDocSnap = await getDoc(userDocRef);
+    if (userDocSnap.exists()) {
+      setUser(userDocSnap.data());
+      console.log("User data loaded:", userDocSnap.data());
+    } else {
+      setUser(null);
+      console.log("No user document found for:", firebaseUser.uid);
+    }
+  });
+  return () => unsubscribe();
+}, []);
 
   const handleSignOut = async () => {
     try {
@@ -42,7 +49,7 @@ const Profile = () => {
     }
   };
 
-  if (!user) return <div>Loading...</div>;
+  if (!user) return <div>Loading...  <button className="section-action-btn" onClick={handleSignOut}>Sign Out</button> </div>;
 
   if (showEdit) {
     return (
@@ -168,7 +175,10 @@ const Profile = () => {
       <div className="balance-card">
         <div className="balance-row">
           <span className="profile-balance">{user.wallet.balance}</span>
-          <span className="profile-group-count">Group: {user.mining.groupMining.groupName} ({user.mining.groupMining.members} members, Boost: {user.mining.groupMining.boostPercent}%)</span>
+          <span className="profile-group-count">
+            Group: {user.mining?.groupMining?.groupName || "-"} (
+            {user.mining?.groupMining?.members ?? 0} members, Boost: {user.mining?.groupMining?.boostPercent ?? 0}%)
+          </span>
         </div>
         <div className="referral-row">
           <span className="referral-label">Referral:</span>

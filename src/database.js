@@ -168,3 +168,5 @@ export async function addReferredUser(referralCode, newUserId) {
 
 }
 
+
+export {createUserIfNotExists, updateLastActive, updateWallet, logMiningSession, updateSecurityMetadata, generateReferralCode};
