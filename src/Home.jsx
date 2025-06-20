@@ -99,7 +99,7 @@ function MiningCountdown({ coins, setCoins, baseRate = 1, userName = "User" }) {
       <div className="mining-timer">{formatTime(time)}</div>
       <button
         className="action-btn"
-        style={{ marginTop: '1.1rem' }}
+        style={{ marginTop: '1.1rem' , padding: '0.7rem 1.2rem', fontSize: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
         onClick={(e) => {
           // Ripple effect
           const btn = e.currentTarget;
@@ -157,28 +157,12 @@ const Home = () => {
           <div className="group-progress-bar" aria-label="Group Mining Progress">
             <div className="group-progress-inner" style={{ width: `${groupBoost * 100}%` }} />
           </div>
-          <button
-            className="invite-btn"
-            onClick={(e) => {
-              // Ripple effect
-              const btn = e.currentTarget;
-              const circle = document.createElement("span");
-              const diameter = Math.max(btn.clientWidth, btn.clientHeight);
-              const radius = diameter / 2;
-              circle.classList.add("ripple");
-              circle.style.width = circle.style.height = `${diameter}px`;
-              circle.style.left = `${e.clientX - btn.getBoundingClientRect().left - radius}px`;
-              circle.style.top = `${e.clientY - btn.getBoundingClientRect().top - radius}px`;
-              btn.appendChild(circle);
-              circle.addEventListener('animationend', () => circle.remove());
-              // TODO: Add invite logic
-            }}
-            tabIndex={0}
-            aria-label="Invite your friend now"
-          >
-            <span className="icon-group" />
-            Invite your friend now
-          </button>
+          <button className="invite-btn">
+  <span className="material-symbols-outlined" style={{ fontSize: 24, verticalAlign: 'middle' }}>
+    group_add
+  </span>
+  <span className="btn-text">Invite your friends now</span>
+</button>
         </div>
       </main>
     </div>

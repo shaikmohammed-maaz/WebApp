@@ -3,6 +3,7 @@ import "./ProfileRedesign.css";
 import { getUserProfile, setUserProfile, ensureUserProfile } from './userUtils';
 import Header from './Header.jsx';
 import MatrixBackground from './MatrixBackground.jsx';
+import avatar from './assets/avatar.png';
 
 // Default user profile data
 const defaultUser = {
@@ -11,7 +12,7 @@ const defaultUser = {
   email: "user@example.com",
   phone: "+1234567890",
   passwordHash: "hashed_password_here",
-  profilePicture: "/assets/avatar01.png",
+  profilePicture: avatar,
   referralCode: "REF123ABC",
   referredBy: "REF987XYZ",
   wallet: {
@@ -240,22 +241,56 @@ const Profile = () => {
         </div>
       </div>
       <div className="section-card">
-        <div className="section-header"><span className="icon-section icon-section-info" />My Information</div>
-        <div className="section-content">Email: {user.email}</div>
-        <div className="section-content">Phone: {user.phone}</div>
-        <div className="section-content">Country: -</div>
-        <div className="section-content">Address: -</div>
+        <div className="section-header aligned-header">
+          <span className="icon-section icon-section-info" />
+          <span>My Information</span>
+        </div>
+        <div className="info-section">
+          <div className="info-row">
+            <span className="info-label">Email:</span>
+            <span className="info-value">{user.email}</span>
+          </div>
+          <div className="info-row">
+            <span className="info-label">Phone:</span>
+            <span className="info-value">{user.phone}</span>
+          </div>
+          <div className="info-row">
+            <span className="info-label">Country:</span>
+            <span className="info-value">-</span>
+          </div>
+          <div className="info-row">
+            <span className="info-label">Address:</span>
+            <span className="info-value">-</span>
+          </div>
+        </div>
       </div>
       <div className="section-card">
-        <div className="section-header"><span className="icon-section icon-section-verify" />User Verification</div>
-        <div className="section-content">KYC Status: <b style={{color:'#2CFF05'}}>{user.kyc.status}</b></div>
-        <div className="section-content">Full Name: {user.kyc.fullName}</div>
-        <div className="section-content">DOB: {user.kyc.dob}</div>
-        <div className="section-content">ID: {user.kyc.idType} {user.kyc.idNumber}</div>
+        <div className="section-header aligned-header">
+          <span className="icon-section icon-section-verify" />
+          <span>User Verification</span>
+        </div>
+        <div className="info-section">
+          <div className="info-row">
+            <span className="info-label">KYC Status:</span>
+            <span className="info-value"><b style={{color:'#2CFF05'}}>{user.kyc.status}</b></span>
+          </div>
+          <div className="info-row">
+            <span className="info-label">Full Name:</span>
+            <span className="info-value">{user.kyc.fullName}</span>
+          </div>
+          <div className="info-row">
+            <span className="info-label">DOB:</span>
+            <span className="info-value">{user.kyc.dob}</span>
+          </div>
+          <div className="info-row">
+            <span className="info-label">ID:</span>
+            <span className="info-value">{user.kyc.idType} {user.kyc.idNumber}</span>
+          </div>
+        </div>
       </div>
       <div className="section-card">
         <div className="section-header"><span className="icon-section icon-section-security" />Account & Security</div>
-        <div className="section-toggle-row">
+        {/* <div className="section-toggle-row">
           <span>2FA</span>
           <label className="toggle-switch">
             <input type="checkbox" checked={user.security.twoFactorEnabled} readOnly />
@@ -268,7 +303,7 @@ const Profile = () => {
             <input type="checkbox" checked={false} readOnly />
             <span className="toggle-slider" />
           </label>
-        </div>
+        </div> */}
         <div className="section-actions">
           <button className="section-action-btn" style={{background:'#d00'}} onClick={()=>setShowDeleteDialog(true)}>Delete Account</button>
           <button className="section-action-btn" onClick={()=>setShowSignoutDialog(true)}>Sign Out</button>

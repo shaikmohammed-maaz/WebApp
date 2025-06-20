@@ -15,7 +15,7 @@ const BlogList = () => {
 
   return (
     <div className="main-bg" style={{ paddingTop: 0, paddingBottom: 80, minHeight: "100vh" }}>
-      <Header />
+      {/* <Header /> */}
       <div className="divider" />
       <div style={{ width: '100%', maxWidth: 540, margin: '0 auto', padding: '0 1.2rem' }}>
         <div className="section-header" style={{ fontSize: '1.4rem', margin: '1.1rem 0 1.2rem 0', textAlign: 'center' }}>Blog</div>
