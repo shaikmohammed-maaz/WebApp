@@ -1,10 +1,10 @@
-import { getFirestore, doc, getDoc, setDoc ,updateDoc ,arrayUnion  } from "firebase/firestore";
+import { getFirestore, doc, getDoc, setDoc ,updateDoc ,arrayUnion ,query ,collection,where, getDocs ,documentId } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
 const db = getFirestore();
 const auth = getAuth();
 
-async function createUserIfNotExists(user , referralCodeInput = null) {
+async function createUserIfNotExists(user , referralCodeInput = null ,displayName = null) {
   const userDocRef = doc(db, "users", user.uid);
   const userDocSnap = await getDoc(userDocRef);
 
@@ -16,10 +16,10 @@ async function createUserIfNotExists(user , referralCodeInput = null) {
     await setDoc(userDocRef, {
       userId: user.uid,
       email: user.email || null,
-      username: user.displayName || "anonymous",
+      username: user.displayName || displayName,
       phone: user.phoneNumber || "",
       passwordHash: null, // Google users don't use your app's password
-      profilePicture: user.photoURL || "avatar.png",
+      profilePicture: user.photoURL || "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
       referralCode: referralCode,
       referredBy: null,
       wallet: {
@@ -70,6 +70,8 @@ async function createUserIfNotExists(user , referralCodeInput = null) {
         banReason: null
       }
     });
+
+    console.log("New user document created with referral code:", referralCodeInput);
 
     await addReferredUser(referralCodeInput, user.uid);
 
@@ -143,10 +145,10 @@ function generateReferralCode(username, uid) {
 }
 
 
-export async function addReferredUser(referralCode, newUserId) {
+ async function addReferredUser(referralCode, newUserId) {
   // 1. Find the referrer by referral code
   const q = query(collection(db, "users"), where("referralCode", "==", referralCode));
-  const querySnapshot = await getDoc(q);
+  const querySnapshot = await getDocs(q);
 
   if (querySnapshot.empty) {
     throw new Error("Referral code not found");
@@ -168,5 +170,110 @@ export async function addReferredUser(referralCode, newUserId) {
 
 }
 
+// Helper to batch Firestore queries (10 IDs per batch)
+async function fetchUsersByIds(userIds) {
+  const db = getFirestore();
+  const chunkSize = 10;
+  let allUsers = [];
 
-export {createUserIfNotExists, updateLastActive, updateWallet, logMiningSession, updateSecurityMetadata, generateReferralCode};
+  for (let i = 0; i < userIds.length; i += chunkSize) {
+    const chunk = userIds.slice(i, i + chunkSize);
+    const q = query(collection(db, "users"), where(documentId(), "in", chunk));
+    const querySnap = await getDocs(q);
+    querySnap.forEach(doc => {
+      allUsers.push({ id: doc.id, ...doc.data() });
+    });
+  }
+  return allUsers;
+}
+
+ async function fetchHomePageDataWithGroupProfiles() {
+  const db = getFirestore();
+  const auth = getAuth();
+  const user = auth.currentUser;
+  if (!user) throw new Error("No user logged in");
+
+  // Fetch current user's document
+  const userRef = doc(db, "users", user.uid);
+  const userSnap = await getDoc(userRef);
+  if (!userSnap.exists()) throw new Error("User document not found");
+  const data = userSnap.data();
+
+  console.log("Fetched user data:", data);
+
+  // Extract group member IDs (assuming you store them as an array)
+  const groupMemberIds = data.referredUsers || [];
+
+   console.log("Group member IDs:", groupMemberIds);
+  // Fetch group member profiles
+  let groupMembers = [];
+  if (groupMemberIds.length > 0) {
+    const profiles = await fetchUsersByIds(groupMemberIds);
+    groupMembers = profiles.map(member => ({
+      userId: member.userId,
+      userName: member.username || "",
+      profilePicture: member.profilePicture || "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
+      isMining: !!member.mining?.currentSession, // or whatever field indicates mining status
+      // Optionally: add more fields as needed
+    }));
+
+    console.log("Fetched group members:", groupMembers);
+  }
+
+  // Prepare user and group mining data
+  const userProfile = {
+    userName: data.username || "",
+    coins: data.wallet?.balance ?? 0,
+    streak: data.mining?.streak?.daysActive ?? 0,
+    target: data.mining?.currentSession?.startTime ?? null,
+    mining: {
+      currentSession: data.mining?.currentSession ?? null,
+      totalMined: data.mining?.totalMined ?? 0,
+    }
+  };
+
+  const groupMining = {
+    groupName: data.mining?.groupMining?.groupName ?? null,
+    groupMembersCount: groupMemberIds.length,
+    groupBoost: data.mining?.groupMining?.boostPercent ?? 0,
+    groupMembersList: groupMembers // Array of member profiles
+  };
+
+  return { userProfile, groupMining };
+}
+
+
+ async function completeMiningSession({
+  userId,
+  minedAmount,
+  nextMiningTime,
+  newStreak,
+  totalMined
+}) {
+  // Prepare the new mining transaction
+  const newMiningTx = {
+    txId: `mining_${Date.now()}`,
+    type: "mining",
+    amount: minedAmount,
+    status: "confirmed",
+    timestamp: new Date().toISOString()
+  };
+
+  // Prepare update data
+  const updateData = {
+    "wallet.balance": minedAmount, // You may want to fetch and add, or pass the new balance directly
+    "mining.currentSession": null, // Mining session ended
+    "mining.streak.daysActive": newStreak,
+    "mining.streak.lastActiveDate": new Date().toISOString().slice(0, 10), // YYYY-MM-DD
+    "mining.totalMined": totalMined,
+    "mining.nextMiningTime": nextMiningTime, // Save cooldown/target timestamp
+    "mining.transactions": arrayUnion(newMiningTx)
+  };
+
+  // Update Firestore
+  await updateDoc(doc(db, "users", userId), updateData);
+}
+
+
+
+export {createUserIfNotExists, updateLastActive, updateWallet, logMiningSession, updateSecurityMetadata, generateReferralCode , fetchHomePageDataWithGroupProfiles , completeMiningSession};

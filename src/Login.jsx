@@ -5,6 +5,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
+import { createUserIfNotExists } from "./database"; // Ensure this function exists to handle user creation
 import { auth } from "./firebase";
 import "./HomeRedesign.css"; // Reuse home styles for background, fonts, etc.
 import "./Login.css"; // Add new styles for login-specific tweaks
@@ -32,17 +33,21 @@ const Login = () => {
     }
   };
 
-  const handleGoogleLogin = async () => {
+const handleGoogleLogin = async () => {
     setError("");
     const provider = new GoogleAuthProvider();
     try {
-      await signInWithPopup(auth, provider);
+      const result = await signInWithPopup(auth, provider);
+      const referral = localStorage.getItem("referralCode") || "";
+      await createUserIfNotExists({
+        ...result.user,
+        referralCodeInput: referral.trim() || null,
+      });
       navigate("/WebApp", { replace: true });
     } catch (err) {
-      setError("Google login failed.");
+      setError(err.message);
     }
   };
-
   return (
     <div className="main-bg login-bg">
       <div className="login-center-container">

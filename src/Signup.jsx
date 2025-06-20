@@ -6,7 +6,7 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { auth } from "./firebase";
-import { createUserIfNotExists } from "./database"; // Make sure this import exists
+import { createUserIfNotExists } from "./database";
 import "./HomeRedesign.css";
 import "./Login.css";
 import logo from "./assets/logo.webp";
@@ -15,13 +15,15 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
   const [pw2, setPw2] = useState("");
-  const [referral, setReferral] = useState(""); // New state for referral code
+  const [username, setUsername] = useState(""); // New state for username
+  const [referral, setReferral] = useState("");
+  const [acceptTerms, setAcceptTerms] = useState(false); // New state for terms
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleSignup = async (e) => {
     e.preventDefault();
-    if (!email || !pw || !pw2) {
+    if (!email || !pw || !pw2 || !username) {
       setError("Please fill all fields.");
       return;
     }
@@ -29,14 +31,18 @@ const Signup = () => {
       setError("Passwords do not match.");
       return;
     }
+    if (!acceptTerms) {
+      setError("You must accept the Terms & Privacy Policy.");
+      return;
+    }
     setError("");
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, pw);
-      // Pass referral code as an extra property
       await createUserIfNotExists({
         ...userCredential.user,
-        referralCodeInput: referral.trim() || null,
-      });
+        displayName: username.trim()},
+         referral.trim() || null
+      );
       navigate("/WebApp", { replace: true });
     } catch (err) {
       setError(err.message);
@@ -50,11 +56,11 @@ const Signup = () => {
       const result = await signInWithPopup(auth, provider);
       await createUserIfNotExists({
         ...result.user,
-        referralCodeInput: referral.trim() || null,
-      });
+        displayName: username.trim()},
+        referral.trim() || null);
       navigate("/WebApp", { replace: true });
     } catch (err) {
-      setError("Google signup failed.");
+      setError(err.message);
     }
   };
 
@@ -74,6 +80,17 @@ const Signup = () => {
             onSubmit={handleSignup}
             autoComplete="off"
           >
+            <label className="login-label" htmlFor="signup-username">
+              Username
+            </label>
+            <input
+              id="signup-username"
+              className="login-input"
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Choose a username"
+            />
             <label className="login-label" htmlFor="signup-email">
               Email
             </label>
@@ -121,6 +138,20 @@ const Signup = () => {
               onChange={(e) => setReferral(e.target.value)}
               placeholder="Enter referral code"
             />
+            <div style={{ margin: "12px 0" }}>
+              <label style={{ display: "flex", alignItems: "center" }}>
+                <input
+                  type="checkbox"
+                  checked={acceptTerms}
+                  onChange={(e) => setAcceptTerms(e.target.checked)}
+                  style={{ marginRight: 8 }}
+                />
+                I accept the&nbsp;
+                <a href="/terms" target="_blank" rel="noopener noreferrer">Terms</a>
+                &nbsp;and&nbsp;
+                <a href="/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+              </label>
+            </div>
             {error && <div className="login-error neon-green">{error}</div>}
             <button
               className="login-btn neon-green-btn"

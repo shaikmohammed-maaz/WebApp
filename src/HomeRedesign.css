@@ -570,3 +570,11 @@ body, .main-bg {
   user-select: none;
   direction: ltr;
 }
+
+.group-members-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin-left: 2rem;
+}
