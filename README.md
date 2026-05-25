@@ -1,34 +1,23 @@
-# Crypto Telegram Mini App
+# React Quiz Game
 
-This is a React.js web app designed to run as a Telegram Mini App, using Vite for fast development and @vkruglikov/react-telegram-web-app for Telegram integration.
+A minimal multiple-choice quiz built with React + Vite. No backend, no dependencies beyond React itself.
 
-## Features
+## Run locally
 
-- React 18 + Vite
-- Telegram Mini App integration
-- Example usage of Telegram Web App API (user info, theme, main button)
+```bash
+npm install
+npm run dev
+```
 
-## Getting Started
+Open the URL Vite prints (usually http://localhost:5173).
 
-1. Install dependencies:
+## Build
 
-   ```powershell
-   npm install
-   ```
+```bash
+npm run build
+npm run preview
+```
 
-2. Start the development server:
+## Add or change questions
 
-   ```powershell
-   npm run dev
-   ```
-
-3. Open the app in your browser or Telegram Mini App environment.
-
-## Customization
-
-- Edit `src/App.jsx` to start building your crypto-based features.
-- Refer to the [@vkruglikov/react-telegram-web-app documentation](https://github.com/vkruglikov/react-telegram-web-app) for more Telegram API features.
-
----
-
-*Replace placeholder UI and logic with your crypto project features as needed.*
+Edit `src/questions.js`. Each question has a `question` string, four `options`, and an `answerIndex` (0–3).
