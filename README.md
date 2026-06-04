@@ -1,6 +1,6 @@
-# React Quiz Game
+# Q&A Zing
 
-A minimal multiple-choice quiz built with React + Vite. No backend, no dependencies beyond React itself.
+A minimal multiple-choice Q&A quiz app built with React + Vite. No backend, no dependencies beyond React itself.
 
 ## Run locally
 
