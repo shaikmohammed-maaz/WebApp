@@ -1,11 +1,18 @@
-import { useState } from 'react'
-import { questions } from './questions.js'
+import { useState, useEffect } from 'react'
 
-export default function Quiz() {
+export default function Quiz({ questions }) {
   const [stage, setStage] = useState('start')
   const [currentIndex, setCurrentIndex] = useState(0)
   const [selectedIndex, setSelectedIndex] = useState(null)
   const [score, setScore] = useState(0)
+
+  useEffect(() => {
+    // Reset state when questions prop changes
+    setStage('start')
+    setCurrentIndex(0)
+    setSelectedIndex(null)
+    setScore(0)
+  }, [questions])
 
   const handleStart = () => {
     setStage('playing')
