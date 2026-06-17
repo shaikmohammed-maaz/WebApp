@@ -1,7 +1,6 @@
 import { useState } from 'react'
-import { questions } from './questions.js'
 
-export default function Quiz() {
+export default function Quiz({ questions }) {
   const [stage, setStage] = useState('start')
   const [currentIndex, setCurrentIndex] = useState(0)
   const [selectedIndex, setSelectedIndex] = useState(null)
